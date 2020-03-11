@@ -7,19 +7,20 @@
       <h1 class="center-text">Diverse Graphics</h1>
       <p>Diverse is a Graphic Design server filled with various levels of designers.
         This is a server for beginners and experienced people alike! A great place for people to learn and get tips.</p>
-      <button class="cta-button center-block" style="display:block;position:relative;bottom:-1em;"> <a href="https://discord.gg/TGzTVpy">Join Guild</a></button>
+      <button class="cta-button center-block" style="display:block;position:relative;bottom:-1em;"> <a
+          href="https://discord.gg/TGzTVpy">Join Guild</a></button>
     </section>
     <section class="cards container-fluid row">
-	<h3 style="width:100%;padding: 0px 10px" class="mt-3">GUILD FEATURES</h3>
-      <div *ngFor="let feature of features" class="col-sm">
+      <h3 style="width:100%;padding: 0px 10px" class="mt-3">GUILD FEATURES</h3>
+      <div *ngFor="let feature of features" class="col-lg">
         <figure>
-		  <i class="{{feature.icon}} featureIcon"></i>
+          <i class="{{feature.icon}} featureIcon"></i>
           <figcaption>
-           {{ feature.caption}}
+            {{ feature.caption}}
           </figcaption>
         </figure>
       </div>
-    
+
     </section>
   </main>
 </div>

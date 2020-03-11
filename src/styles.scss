@@ -37,12 +37,21 @@ a:any-link {
   --radius-sml: 5px;
 }
 
+
 html,
 body {
   font-family: var(--roboto);
-  //font-size: 16pt; // Large screen
   font-size: 13pt;
   color: var(--text);
+}
+
+
+@media only screen and (min-width: 1600px) {
+
+  html,
+  body {
+    font-size: 16pt;
+  }
 }
 
 
