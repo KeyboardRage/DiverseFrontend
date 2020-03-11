@@ -1,0 +1,30 @@
+header {
+  margin: 0 auto;
+  display: grid;
+  width: 100%;
+  padding: 0.6rem 35px 0px 35px;
+  padding-top: 0.6rem;
+  grid-template-areas: "logo . . nav";
+  -webkit-box-align: center;
+  align-items: center;
+  height: 90px;
+}
+
+nav {
+  grid-area: nav;
+}
+
+/* ID */
+#logo {
+  max-height: 70px;
+  padding: 10px 0;
+  width: 70px;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.align-right {
+ text-align: right
+}
