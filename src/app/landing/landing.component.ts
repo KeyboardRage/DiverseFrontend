@@ -9,11 +9,11 @@ export class LandingComponent implements OnInit {
 
   features = [
     {
-      icon: "fas fa-comments",
+      icon: "feedback.png",
       caption: "Feedback channels where you can post your work, and get feedback from designers and non-designers."
     },
     {
-      icon: "fas fa-question",
+      icon: "problem.png",
       caption: "Technical help channel, in case you need help with one of the softwares, drawing tablet, theory, and so on."
     },
     {

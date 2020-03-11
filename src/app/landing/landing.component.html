@@ -14,7 +14,8 @@
       <h3 style="width:100%;padding: 0px 10px" class="mt-3">GUILD FEATURES</h3>
       <div *ngFor="let feature of features" class="col-lg">
         <figure>
-          <i class="{{feature.icon}} featureIcon"></i>
+          <div class="img-box">
+            <img src="../../assets/images/{{feature.icon}}" class="featureIcon"></div>
           <figcaption>
             {{ feature.caption}}
           </figcaption>

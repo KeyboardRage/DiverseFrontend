@@ -1,0 +1,40 @@
+ul {
+  list-style: none;
+  color: var(--light-text);
+
+}
+
+li {
+  padding: 5px 0;
+}
+
+.active {
+  color: var(--gold);
+}
+
+#main {
+  grid-area: main;
+}
+
+#admin {
+  grid-area: admin;
+}
+
+#logout {
+  grid-area: logout;
+  align-self: flex-end;
+  text-align: center;
+}
+
+.sidenav-container {
+  height: 100vh;
+  padding: 40px 20px 0px 20px;
+  display: grid;
+  grid-template-rows: repeat(1fr, 5);
+  grid-template-areas: "main""admin""."".""logout";
+}
+
+.subheader {
+  color: var(--bg-light);
+  font-weight: 600;
+}
