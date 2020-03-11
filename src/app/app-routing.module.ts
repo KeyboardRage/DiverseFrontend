@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomePageComponent } from './home-page/home-page.component';
+import { LandingComponent } from './landing/landing.component';
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent },
-  { path: '**', component: HomePageComponent } // Error 404
+  { path: '', component: LandingComponent },
+  { path: '**', component: LandingComponent } // Error 404
 
 ]
 
