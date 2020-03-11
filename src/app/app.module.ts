@@ -7,6 +7,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { NavbarComponent } from './home-page/navbar/navbar.component';
 import { GuildFeaturesComponent } from './home-page/guild-features/guild-features.component';
 import { InviteModuleComponent } from './home-page/invite-module/invite-module.component';
+import { LandingComponent } from './landing/landing.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { InviteModuleComponent } from './home-page/invite-module/invite-module.c
     NavbarComponent,
     GuildFeaturesComponent,
     InviteModuleComponent
+    LandingComponent
   ],
   imports: [
     BrowserModule,

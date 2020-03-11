@@ -4,3 +4,106 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+:root {
+  /* Typography */
+  --roboto: "Roboto", "Helvetica Now", "Helvetica Neue", "Helvertica", sans-serif;
+  /* Colours */
+  --light-text: #EDEDED;
+  --text: #BDBDBD;
+  --gold: #F3C965;
+  --gold-dark: #CFAE64;
+  --bg: #282832;
+  --bg-dark: #191923;
+  --bg-light: #34343E;
+  /* Effects */
+  --shadow: 0 4px 4px rgba(0, 0, 0, .25);
+  --radius-big: 10px;
+}
+
+html,
+body {
+  font-family: var(--roboto);
+  font-size: 16pt;
+  color: var(--text);
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: url("/assets/images/pattern.jpg") repeat;
+  background-position: 0 0;
+  animation: moving_background 500s linear infinite;
+}
+
+@keyframes moving_background {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: -10000px 0;
+  }
+}
+
+
+h1 {
+  color: var(--gold);
+  font-size: 3rem;
+}
+
+h2 {
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+/* Public CSS */
+.center-text {
+  text-align: center;
+}
+
+.center-block {
+  margin: 0 auto;
+}
+
+.cta-button {
+  border-radius: 2rem;
+  background: var(--gold-dark);
+  color: var(--bg);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: .6rem 1.2rem;
+  border: none;
+  font-weight: 600;
+}
+
+/* Icons */
+span.burger:after {
+  content: "";
+  display: block;
+  height: 5px;
+  width: 2em;
+  background: var(--gold);
+  bottom: -6px;
+  position: relative;
+}
+
+span.burger:before {
+  content: "";
+  display: block;
+  height: 5px;
+  width: 2em;
+  background: var(--gold);
+  top: -12px;
+  position: relative;
+}
+
+span.burger {
+  display: inline-block;
+  height: 5px;
+  width: 2em;
+  background: var(--gold);
+}

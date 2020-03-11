@@ -1,0 +1,81 @@
+
+/* Tag */
+
+main {
+	display: grid;
+	grid-template-areas:
+      ". . jumbo jumbo jumbo jumbo jumbo jumbo jumbo jumbo . ."
+		"cards cards cards cards cards cards cards cards cards cards cards cards";
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+
+
+	section.jumbotron {
+		grid-area: jumbo;
+		margin: 5rem 0;
+		background: var(--bg-dark);
+		border-radius: var(--radius-big);
+		padding: 4rem 4rem 0 4rem;
+	}
+
+	section.cards {
+		background: var(--bg-dark);
+		grid-area: cards;
+	}
+}
+@media only screen and (min-width: 576px) {
+	main {
+		grid-template-areas: ". jumbo jumbo jumbo jumbo jumbo jumbo jumbo jumbo jumbo jumbo ."
+		"cards cards cards cards cards cards cards cards cards cards cards cards";
+	}
+}
+@media only screen and (min-width: 768px) {
+  main {
+    grid-template-areas: ". . jumbo jumbo jumbo jumbo jumbo jumbo jumbo jumbo . ."
+      "cards cards cards cards cards cards cards cards cards cards cards cards";
+  }
+}
+@media only screen and (min-width: 992px) {
+  main {
+    grid-template-areas: ". . jumbo jumbo jumbo jumbo jumbo jumbo jumbo jumbo . ."
+      "cards cards cards cards cards cards cards cards cards cards cards cards";
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  main {
+    grid-template-areas: ". . . jumbo jumbo jumbo jumbo jumbo jumbo . . ."
+      "cards cards cards cards cards cards cards cards cards cards cards cards";
+  }
+}
+
+@media only screen and (min-width: 2000px) {
+  main {
+    grid-template-areas: ". . . . jumbo jumbo jumbo jumbo . . . ."
+      "cards cards cards cards cards cards cards cards cards cards cards cards";
+  }
+}
+
+
+header {
+	margin:0 auto;
+	display: grid;
+	width: 90%;
+	margin-top: 1rem;
+	grid-template-areas: "logo . . nav";
+	align-items: center;
+}
+
+nav {
+	grid-area: nav;
+}
+
+/* ID */
+#logo {
+	max-height: 4rem;
+}
+
+/* Class */
+.jumbotron {
+	grid-area: jumbo;
+};
