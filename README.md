@@ -1,3 +1,6 @@
+# Design
+Check out [the Figma file](https://www.figma.com/file/T36i0kPeqvNn1zOVGkLJHc/Diverse-site) for design.
+
 # DiverseFrontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.4.
