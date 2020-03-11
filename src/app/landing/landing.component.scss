@@ -1,40 +1,42 @@
-
 /* Tag */
 
 main {
-	display: grid;
-	grid-template-areas:
-      ". . jumbo jumbo jumbo jumbo jumbo jumbo jumbo jumbo . ."
-		"cards cards cards cards cards cards cards cards cards cards cards cards";
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-	grid-template-rows: 1fr 1fr;
+  display: grid;
+  grid-template-areas:
+    ". . jumbo jumbo jumbo jumbo jumbo jumbo jumbo jumbo . ."
+    "cards cards cards cards cards cards cards cards cards cards cards cards";
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
 
 
-	section.jumbotron {
-		grid-area: jumbo;
-		margin: 5rem 0;
-		background: var(--bg-dark);
-		border-radius: var(--radius-big);
-		padding: 4rem 4rem 0 4rem;
-	}
+  section.jumbotron {
+    grid-area: jumbo;
+    margin: 5rem 0;
+    background: var(--bg-dark);
+    border-radius: var(--radius-big);
+    padding: 4rem 4rem 0 4rem;
+  }
 
-	section.cards {
-		background: var(--bg-dark);
-		grid-area: cards;
-	}
+  section.cards {
+    background: var(--bg-dark);
+    grid-area: cards;
+  }
 }
+
 @media only screen and (min-width: 576px) {
-	main {
-		grid-template-areas: ". jumbo jumbo jumbo jumbo jumbo jumbo jumbo jumbo jumbo jumbo ."
-		"cards cards cards cards cards cards cards cards cards cards cards cards";
-	}
+  main {
+    grid-template-areas: ". jumbo jumbo jumbo jumbo jumbo jumbo jumbo jumbo jumbo jumbo ."
+      "cards cards cards cards cards cards cards cards cards cards cards cards";
+  }
 }
+
 @media only screen and (min-width: 768px) {
   main {
     grid-template-areas: ". . jumbo jumbo jumbo jumbo jumbo jumbo jumbo jumbo . ."
       "cards cards cards cards cards cards cards cards cards cards cards cards";
   }
 }
+
 @media only screen and (min-width: 992px) {
   main {
     grid-template-areas: ". . jumbo jumbo jumbo jumbo jumbo jumbo jumbo jumbo . ."
@@ -58,24 +60,86 @@ main {
 
 
 header {
-	margin:0 auto;
-	display: grid;
-	width: 90%;
-	margin-top: 1rem;
-	grid-template-areas: "logo . . nav";
-	align-items: center;
+  margin: 0 auto;
+  display: grid;
+  width: 90%;
+  margin-top: 1rem;
+  grid-template-areas: "logo . . nav";
+  -webkit-box-align: center;
+  align-items: center;
 }
 
 nav {
-	grid-area: nav;
+  grid-area: nav;
 }
 
 /* ID */
 #logo {
-	max-height: 4rem;
+  max-height: 4rem;
 }
 
 /* Class */
 .jumbotron {
-	grid-area: jumbo;
-};
+  grid-area: jumbo;
+}
+
+body {
+  background: url("../../assets/images/pattern.jpg") repeat;
+  background-position: 0 0;
+  -webkit-animation: moving_background 500s linear infinite;
+  animation: moving_background 500s linear infinite;
+}
+
+@-webkit-keyframes moving_background {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: -10000px 0;
+  }
+}
+
+@keyframes moving_background {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: -10000px 0;
+  }
+}
+
+
+h1 {
+  color: var(--gold);
+  font-size: 3rem;
+}
+
+h2 {
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+/* Public CSS */
+.center-text {
+  text-align: center;
+}
+
+.center-block {
+  margin: 0 auto;
+}
+
+.cta-button {
+  border-radius: 2rem;
+  background: var(--gold-dark);
+  color: var(--bg);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: .6rem 1.2rem;
+  border: none;
+  font-weight: 600;
+}
