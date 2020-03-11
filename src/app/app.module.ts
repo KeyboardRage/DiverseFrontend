@@ -3,10 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { NavbarComponent } from './home-page/navbar/navbar.component';
+import { GuildFeaturesComponent } from './home-page/guild-features/guild-features.component';
+import { InviteModuleComponent } from './home-page/invite-module/invite-module.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomePageComponent,
+    NavbarComponent,
+    GuildFeaturesComponent,
+    InviteModuleComponent
   ],
   imports: [
     BrowserModule,
