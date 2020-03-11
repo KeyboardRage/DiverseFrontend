@@ -94,6 +94,46 @@ h2 {
   font-weight: 600;
 }
 
+
+@media only screen and (max-width: 575px) {
+  main {
+    grid-template-areas: "jumbo jumbo jumbo jumbo jumbo jumbo jumbo jumbo jumbo jumbo jumbo jumbo"
+      "cards cards cards cards cards cards cards cards cards cards cards cards";
+  }
+
+  .page-container {
+    background: var(--bg-dark);
+    -webkit-animation: none;
+    animation: none;
+  }
+
+  section.jumbotron {
+    margin: 0rem 0 2rem 0 !important;
+    padding: 2rem 2rem 0 2rem !important;
+    // height: calc(100vh - 90px);
+    border-radius: 0 !important;
+  }
+
+  .center-block {
+    margin: 0 !important;
+  }
+
+  .cta-button {
+    width: 100%;
+    border-radius: var(--radius-sml);
+  }
+
+  h2 {
+    letter-spacing: normal;
+  }
+
+  .jumbotron .center-text {
+    text-align: left;
+    line-height: 1;
+    padding-bottom: 5px;
+  }
+}
+
 @media only screen and (min-width: 576px) {
   main {
     grid-template-areas: ". jumbo jumbo jumbo jumbo jumbo jumbo jumbo jumbo jumbo jumbo ."

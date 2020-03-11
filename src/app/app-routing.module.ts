@@ -4,7 +4,8 @@ import { LandingComponent } from './landing/landing.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
-  { path: '**', component: LandingComponent } // Error 404
+  { path: '**', component: LandingComponent }, // Error 404
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 
 ]
 
