@@ -34,6 +34,57 @@ li {
   grid-template-areas: "main""admin""."".""logout";
 }
 
+.logout,
+.closeIcon {
+  display: none;
+}
+
+
+@media only screen and (max-width: 520px) {
+  .sidenav-container {
+    padding: 40px 60px 0px 60px;
+    display: grid;
+    position: relative;
+    grid-template-rows: repeat(1fr, 5);
+    grid-template-areas: "main""admin""."".""logout";
+
+  }
+
+  #logout {
+    display: none;
+  }
+
+
+  .closeIcon {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  .logout {
+    display: block;
+    position: absolute;
+    bottom: -75px;
+    left: -75px;
+    width: 150px;
+    height: 150px;
+    background-color: #EB5757;
+    padding: 20px;
+    border-radius: 50%;
+  }
+
+  .logoutIcon {
+    color: var(--bg-dark);
+    position: relative;
+    top: 15px;
+    left: 75px;
+    font-size: 20pt;
+  }
+
+}
+
+
 .subheader {
   color: var(--bg-light);
   font-weight: 600;

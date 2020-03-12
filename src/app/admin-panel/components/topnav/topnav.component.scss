@@ -14,6 +14,11 @@
   align-self: center;
 }
 
+.menuButton {
+  display: none;
+}
+
+
 .topbar {
   display: grid;
   -webkit-box-align: center;
@@ -24,6 +29,8 @@
 }
 
 .dropdownModule {
+  margin: 0 10px;
+  display: block;
   cursor: pointer;
   position: relative;
   color: var(--normal-text);
@@ -89,4 +96,47 @@
   border-bottom: 20px solid var(--light-text);
   border-right: 13px solid transparent;
   border-left: 13px solid transparent;
+}
+
+@media only screen and (max-width: 520px) {
+  .menuButton {
+    z-index: 1;
+    display: block;
+    bottom: -75px;
+    right: -75px;
+    width: 150px;
+    height: 150px;
+    background-color: var(--gold);
+    padding: 20px;
+    border-radius: 50%;
+    position: fixed;
+
+  }
+
+  .menuIcon {
+    color: var(--bg-dark);
+    position: relative;
+    top: 15px;
+    right: -15px;
+    font-size: 20pt;
+  }
+
+  .profile {
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
+  }
+
+  .topbar h1 {
+    font-size: 1.7em;
+  }
+
+  .topbar h3 {
+    font-size: 1em;
+  }
+
+  .dropdownModule {
+    display: none;
+  }
+
 }

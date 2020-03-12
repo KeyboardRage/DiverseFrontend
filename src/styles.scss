@@ -28,9 +28,11 @@ a:any-link {
   --light-text: #EDEDED;
   --text: #BDBDBD;
   --gold: #F3C965;
+  --red: #EB5757;
   --gold-dark: #CFAE64;
   --bg: #282832;
   --bg-dark: #191923;
+  --blue: #56CCF2;
   --bg-light: #34343E;
   /* Effects */
   --shadow: 0 4px 4px rgba(0, 0, 0, .25);
@@ -114,12 +116,19 @@ span.burger {
   display: none;
 }
 
+.body {
+  padding: 30px;
+  grid-area: body;
+}
+
 .page-layout {
   display: grid;
+  background-color: var(--bg);
   width: 100%;
-  grid-template-rows: repeat(1fr, 4);
+  grid-template-rows: 100px 1fr 1fr 1fr;
   grid-template-columns: repeat(1fr, 12);
-  grid-template-areas: "sidebar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar""sidebar . . . . . . . . . . .""sidebar . . . . . . . . . . .""sidebar . . . . . . . . . . .";
+  grid-template-areas: "sidebar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar""sidebar body body body body body body body body body body body""sidebar body body body body body body body body body body body";
+  height: 100vh;
 }
 
 .sidebar {
@@ -130,6 +139,21 @@ span.burger {
 
 .navbar {
   grid-area: navbar;
-  background: var(--bg-light);
+  background: var(--bg);
   padding: 30px;
+}
+
+@media only screen and (max-width: 520px) {
+
+  .sidebar {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    right: 100vw;
+  }
+
+  .navbar {
+    padding: 20px;
+  }
+
 }

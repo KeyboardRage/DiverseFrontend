@@ -1,4 +1,6 @@
 <div class="sidenav-container">
+  <div class="close" (click)="closeNavbar()"><i class="fas fa-times-circle closeIcon"></i></div>
+
   <ul id="main">
     <li><a href="#" routerLink="/admin" routerLinkActive="active"
         [routerLinkActiveOptions]="{exact: true}">Dashboard</a></li>
@@ -21,4 +23,6 @@
   <ul id="logout" class="subheader">
     <li><a href="#">LOGOUT</a></li>
   </ul>
+  <div class="logout"><i class="fas fa-sign-out-alt logoutIcon"></i></div>
+
 </div>

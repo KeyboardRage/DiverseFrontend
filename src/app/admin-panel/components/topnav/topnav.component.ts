@@ -11,6 +11,11 @@ export class TopnavComponent implements OnInit {
   toggleDropdown() {
     $('#talkbubble').fadeToggle();
   }
+  openNavbar() {
+    $('.sidebar').animate({
+      right: '0vw'
+    }, 500);
+  }
   @Input() button?: boolean
   @Input() buttonLink?= ''
   @Input() title: string = ""

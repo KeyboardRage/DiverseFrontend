@@ -1,1 +1,75 @@
+.alert {
+  background-color: var(--red);
+  padding: 10px 20px;
+  text-align: center;
+  color: var(--normal-text);
+  font-weight: 500;
+  font-size: 12pt;
+  border-radius: var(--radius-sml);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  margin-bottom: 30px;
+}
 
+.body h3 {
+  font-weight: 400;
+}
+
+#recentcases {
+  padding: 20px 0px;
+  width: inherit;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: -webkit-box;
+  display: flex;
+}
+
+.case-box {
+  margin-right: 10px;
+  display: grid;
+  width: 300px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  grid-template-rows: repeat(1fr, 5);
+  grid-template-areas: "type""username""."".""date";
+  background-color: var(--bg-light);
+  padding: 20px;
+  row-gap: 5px;
+  border-radius: var(--radius-sml);
+}
+
+#type {
+  letter-spacing: 5px;
+  grid-area: type;
+  font-size: 10pt;
+}
+
+#username {
+  grid-area: username;
+}
+
+#time {
+  grid-area: date;
+  font-size: 10pt;
+
+}
+
+.warn {
+  color: var(--blue);
+}
+
+.kick {
+  color: #F2994A;
+}
+
+.ban,
+.open {
+  color: #EB5757;
+}
+
+.mute,
+.closed {
+  color: #F2C94C;
+}
+
+.inprogress {
+  color: #27AE60;
+}

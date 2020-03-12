@@ -1,7 +1,7 @@
 <div class="topbar">
   <div id="header">
     <h1 class="title">{{title | uppercase}}</h1>
-    <h3>{{subheader | uppercase}}</h3>
+    <h3 *ngIf="subheader">{{subheader | uppercase}}</h3>
   </div>
   <div routerLink={{buttonLink}} class="dropdownModule" *ngIf="button"
     onmouseover="this.querySelector('.tooltip').style.display='block'"
@@ -10,3 +10,4 @@
   </div>
   <div class="profile"></div>
 </div>
+<div class="menuButton" (click)="openNavbar()"><i class="fas fa-bars menuIcon"></i></div>
