@@ -3,6 +3,9 @@
       <sidenav></sidenav>
     </div>
     <div class="navbar">
-      <topnav></topnav>
+      <topnav button="true" title="Admin Panel" subheader="Overview"
+        [buttonLinks]="[{name:'New Case',link:'/admin/new-case'}, {name:'New Deal With Caution',link:'/admin/new-dwc'}]">
+      </topnav>
     </div>
+
   </div>

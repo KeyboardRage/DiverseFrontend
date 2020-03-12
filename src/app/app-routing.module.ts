@@ -6,10 +6,13 @@ import { DashboardComponent } from './admin-panel/dashboard/dashboard.component'
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
-  { path: 'admin', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'dashboard/**', component: DashboardComponent }, // Error 404 on Admin
-  { path: 'dashboard/**', redirectTo: 'dashboard', pathMatch: 'full' },
+  {
+    path: 'admin', component: DashboardComponent,
+    children: [
+      { path: '**', component: DashboardComponent }, // Error 404 on Admin
+      { path: '**', redirectTo: 'admin', pathMatch: 'full' },
+    ]
+  },
   { path: '**', component: LandingComponent }, // Error 404
   { path: '**', redirectTo: '', pathMatch: 'full' }
 

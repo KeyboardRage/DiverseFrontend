@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'topnav',
@@ -8,22 +9,17 @@ import { Component, OnInit } from '@angular/core';
 export class TopnavComponent implements OnInit {
 
   toggleDropdown() {
-    let elem = document.querySelector('#talkbubble');
-    if (window.getComputedStyle(elem).display === 'block') {
-      elem.style.opacity = "0";
-      setTimeout(() => {
-        elem.style.display = "none";
-      }, 500);
-      return;
-    }
-
-    elem.style.opacity = "1";
-    setTimeout(() => {
-      elem.style.display = 'block';
-    }, 100);
-
+    $('#talkbubble').fadeToggle();
   }
-  constructor() { }
+  @Input() button: boolean = true
+  @Input() buttonLink?= ''
+  @Input() buttonLinks?= { url: "", name: "" }
+  @Input() title: string = ""
+  @Input() subheader?: string = ""
+
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
