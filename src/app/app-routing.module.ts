@@ -18,7 +18,7 @@ const routes: Routes = [
       { path: 'bans', component: BansComponent, pathMatch: 'full' },
       { path: 'cases', component: CasesComponent, pathMatch: 'full' },
       { path: 'archive', component: ArchiveComponent, pathMatch: 'full' },
-      { path: '**', component: IndexComponent }, // Error 404 on Admin
+      { path: '**', component: DashboardComponent }, // Error 404 on Admin
       { path: '**', redirectTo: 'admin', pathMatch: 'full' },
     ]
   },

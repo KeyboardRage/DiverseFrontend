@@ -16,11 +16,15 @@
 
 #recentcases {
   padding: 20px 0px;
-  width: inherit;
   overflow-x: auto;
-  overflow-y: hidden;
   display: -webkit-box;
   display: flex;
+  flex-wrap: nowrap;
+}
+
+.case-container {
+  -webkit-box-flex: 0;
+  flex: 0 0 auto;
 }
 
 .case-box {
