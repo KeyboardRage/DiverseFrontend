@@ -1,10 +1,15 @@
 <div class="sidenav-container">
   <ul id="main">
-    <li><a href="#" routerLink="admin" routerLinkActive="active">Dashboard</a></li>
-    <li><a href="#" routerLink="/admin/tickets" routerLinkActive="active">Open tickets</a></li>
-    <li><a href="#" routerLink="/admin/bans" routerLinkActive="active">Recent bans</a></li>
-    <li><a href="#" routerLink="/admin/cases" routerLinkActive="active">Recent cases</a></li>
-    <li><a href="#" routerLink="/admin/archive" routerLinkActive="active">Archive</a></li>
+    <li><a href="#" routerLink="/admin" routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}">Dashboard</a></li>
+    <li><a href="#" routerLink="/admin/tickets" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Open
+        tickets</a></li>
+    <li><a href="#" routerLink="/admin/bans" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Recent
+        bans</a></li>
+    <li><a href="#" routerLink="/admin/cases" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Recent
+        cases</a></li>
+    <li><a href="#" routerLink="/admin/archive" routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}">Archive</a></li>
   </ul>
   <div id="admin">
     <div class="subheader">ADMINSTRATOR</div>

@@ -116,3 +116,23 @@ span.burger {
   border-right: 13px solid transparent;
   border-left: 13px solid transparent;
 }
+
+.page-layout {
+  display: grid;
+  width: 100%;
+  grid-template-rows: repeat(1fr, 4);
+  grid-template-columns: repeat(1fr, 12);
+  grid-template-areas: "sidebar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar""sidebar . . . . . . . . . . .""sidebar . . . . . . . . . . .""sidebar . . . . . . . . . . .";
+}
+
+.sidebar {
+  grid-area: sidebar;
+  height: 100vh;
+  background: var(--bg-dark);
+}
+
+.navbar {
+  grid-area: navbar;
+  background: var(--bg-light);
+  padding: 30px;
+}

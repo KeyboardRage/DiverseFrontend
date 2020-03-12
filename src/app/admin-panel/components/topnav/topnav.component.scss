@@ -2,13 +2,16 @@
   color: var(--gold);
   line-height: 1;
   margin-bottom: 0;
-  grid-area: title;
 }
 
 .topbar h3 {
   line-height: 1;
   font-weight: 400;
-  grid-area: subtitle;
+}
+
+#header {
+  grid-area: header;
+  align-self: center;
 }
 
 .topbar {
@@ -16,8 +19,8 @@
   -webkit-box-align: center;
   align-items: center;
   grid-template-columns: repeat(1fr, 12);
-  grid-template-rows: repeat(1fr, 2);
-  grid-template-areas: "title . . . . . . . . . button profile""subtitle . . . . . . . . . button profile";
+  grid-template-rows: repeat(1fr, 1);
+  grid-template-areas: "header . . . . . . . . . button profile";
 }
 
 .dropdownModule {
