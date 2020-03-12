@@ -13,7 +13,6 @@ export class TopnavComponent implements OnInit {
   }
   @Input() button: boolean = true
   @Input() buttonLink?= ''
-  @Input() buttonLinks?= { url: "", name: "" }
   @Input() title: string = ""
   @Input() subheader?: string = ""
 

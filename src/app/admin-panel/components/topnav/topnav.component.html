@@ -1,15 +1,7 @@
 <div class="topbar">
   <h1 class="title">{{title | uppercase}}</h1>
   <h3>{{subheader | uppercase}}</h3>
-  <div class="dropdownModule" *ngIf="button" (click)="toggleDropdown()"><i class="fas fa-plus"></i>
-    <div id="talkbubble">
-      <ul>
-        <li *ngFor="let navItem of buttonLinks">
-          <a href="{{navItem.link}}">{{navItem.name}}</a>
-        </li>
-      </ul>
-      <br>
-    </div>
+  <div routerLink={{buttonLink}} class="dropdownModule" *ngIf="button"><i class="fas fa-plus"></i>
   </div>
   <div class="profile"></div>
 </div>
