@@ -15,6 +15,8 @@ export class TopnavComponent implements OnInit {
   @Input() buttonLink?= ''
   @Input() title: string = ""
   @Input() subheader?: string = ""
+  @Input() tooltip?: string = ""
+
 
 
   constructor() {

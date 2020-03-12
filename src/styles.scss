@@ -101,20 +101,17 @@ span.burger {
   text-align: center;
 }
 
-#hover:hover {
-  display: block;
-}
-
-#hover:before {
-  content: "";
+.tooltip {
   position: absolute;
-  right: 60px;
-  top: -20px;
-  width: 0;
-  height: 0;
-  border-bottom: 20px solid var(--bg);
-  border-right: 13px solid transparent;
-  border-left: 13px solid transparent;
+  bottom: -3em;
+  background: var(--bg-light);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  padding: .5em;
+  border-radius: 8px;
+  text-align: center;
+  font-size: .7em;
+  display: none;
 }
 
 .page-layout {

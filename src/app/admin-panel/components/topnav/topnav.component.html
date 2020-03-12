@@ -3,8 +3,10 @@
     <h1 class="title">{{title | uppercase}}</h1>
     <h3>{{subheader | uppercase}}</h3>
   </div>
-  <div routerLink={{buttonLink}} class="dropdownModule" *ngIf="button"><i class="fas fa-plus"></i>
-    <div id="hover">New case</div>
+  <div routerLink={{buttonLink}} class="dropdownModule" *ngIf="button"
+    onmouseover="this.querySelector('.tooltip').style.display='block'"
+    onmouseout="this.querySelector('.tooltip').style.display='none'"><i class="fas fa-plus"></i>
+    <div class="tooltip" style="display: none;">{{tooltip}}</div>
   </div>
   <div class="profile"></div>
 </div>
