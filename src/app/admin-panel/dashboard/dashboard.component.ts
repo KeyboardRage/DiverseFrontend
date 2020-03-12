@@ -6,9 +6,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  navItems = [
-    { component: '<dashboard></dashboard>', link: '/dashboard' },
-    { component: '<tickets></tickets>', link: '/tickets' }
+  cases = [
+    {
+      'type': 'warn',
+      'username': 'Freud#1764',
+      'date': '12.03.20'
+    },
+    {
+      'type': 'kick',
+      'username': 'Freud#1764',
+      'date': '12.03.20'
+    },
+    {
+      'type': 'ban',
+      'username': 'Freud#1764',
+      'date': '12.03.20'
+    },
+    {
+      'type': 'mute',
+      'username': 'Freud#1764',
+      'date': '12.03.20'
+    }
   ]
   constructor() { }
 
