@@ -136,7 +136,20 @@
   }
 
   .dropdownModule {
-    display: none;
+    height: 30px;
+    width: 30px;
   }
 
+
+}
+
+@media only screen and (max-width: 320px) {
+  .topbar h1 {
+    font-size: 1.5em;
+  }
+
+  .topbar h3 {
+    font-size: 0.9em;
+    margin: 0;
+  }
 }
