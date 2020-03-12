@@ -120,6 +120,7 @@ span.burger {
   padding: 20px 30px;
   grid-area: body;
   width: 100%;
+  overflow-x: auto;
 }
 
 .page-layout {
@@ -129,7 +130,7 @@ span.burger {
   grid-template-rows: 100px 1fr;
   grid-template-columns: repeat(12, 1fr);
   grid-template-areas: "sidebar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar""sidebar body body body body body body body body body body body";
-  min-height: 100vh;
+  height: 100vh;
 }
 
 /* Let's get this party started */
