@@ -11,11 +11,12 @@
 
 
 .user {
-  background-color: var(--bg-light);
+  background-color: var(--bg-dark);
   padding: 5px;
   border-radius: 5px;
   width: auto;
   text-align: center;
+  font-family: var(--monospace)
 }
 
 .archive-table-mobile {
@@ -34,7 +35,7 @@
   }
 
   .archive-table-mobile .archive-entry:nth-child(even) {
-    background-color: var(--bg-dark);
+    background-color: var(--bg-light);
     padding: 10px;
   }
 
