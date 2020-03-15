@@ -1,6 +1,9 @@
 <header>
   <a href="/" style="grid-area:logo"><img src="/assets/images/DiverseLogo.svg" alt="Diverse Logo" id="logo"></a>
-  <nav class="align-right">
-    <a href="javascript:void(0)"><span class="burger disabled"></span></a>
+  <nav class="align-right" style="position: relative;">
+    <a href="javascript:void(0)"><span class="burger" onmouseover="this.querySelector('.tooltip').style.display='block'"
+        onmouseout="this.querySelector('.tooltip').style.display='none'">
+        <div class="tooltip" style="display: none;">Coming&nbsp;soon</div>
+      </span></a>
   </nav>
 </header>

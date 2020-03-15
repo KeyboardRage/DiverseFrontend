@@ -9,25 +9,31 @@
 
 main {
   height: calc(100vh - 90px);
+  width: 100%;
   display: grid;
   grid-template-areas:
     ". . jumbo jumbo jumbo jumbo jumbo jumbo jumbo jumbo . ."
     "cards cards cards cards cards cards cards cards cards cards cards cards";
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 2fr 1fr;
 
 
   section.jumbotron {
     grid-area: jumbo;
     margin: 3rem 0;
+
+  }
+
+  .text-area {
     background: var(--bg-dark);
     border-radius: var(--radius-big);
-    padding: 3rem 3rem 0 3rem;
+    padding: 3rem;
   }
 
   section.cards {
     background: var(--bg-dark);
     grid-area: cards;
+    padding: 10px;
   }
 }
 
@@ -41,12 +47,34 @@ main {
   font-size: 2rem;
 }
 
-.img-box,
-figure img {
-  width: 100%;
+
+.features img {
+  width: 20%;
+  min-width: 90px;
   height: 100px;
+  padding-right: 20px;
   -o-object-fit: contain;
   object-fit: contain;
+}
+
+.featuretext {
+  width: 70%;
+}
+
+.img-box {
+  display: -webkit-box;
+  flex-wrap: wrap;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+
+}
+
+.features {
+  padding: 10px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
 }
 
 @-webkit-keyframes moving_background {
@@ -94,13 +122,14 @@ h2 {
 
 .cta-button {
   border-radius: 2rem;
-  background: var(--gold-dark);
+  background: var(--gold);
   color: var(--bg);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   padding: .6rem 1.2rem;
   border: none;
   font-weight: 600;
+  margin-top: calc(-1.5rem - 1em);
 }
 
 
@@ -116,10 +145,13 @@ h2 {
     animation: none;
   }
 
+  .text-area {
+    padding: 0 !important;
+  }
+
   section.jumbotron {
     margin: 0rem 0 2rem 0 !important;
     padding: 2rem 2rem 0 2rem !important;
-    // height: calc(100vh - 90px);
     border-radius: 0 !important;
   }
 
@@ -148,12 +180,26 @@ h2 {
     grid-template-areas: ". jumbo jumbo jumbo jumbo jumbo jumbo jumbo jumbo jumbo jumbo ."
       "cards cards cards cards cards cards cards cards cards cards cards cards";
   }
+
+  .img-box {
+    margin: 10px 0;
+
+  }
 }
 
 @media only screen and (min-width: 992px) {
   main {
     grid-template-areas: ". . jumbo jumbo jumbo jumbo jumbo jumbo jumbo jumbo . ."
       "cards cards cards cards cards cards cards cards cards cards cards cards";
+  }
+
+  .img-box {
+    margin: 0;
+
+  }
+
+  .features {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
