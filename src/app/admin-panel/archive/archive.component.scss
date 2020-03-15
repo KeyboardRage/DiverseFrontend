@@ -10,10 +10,12 @@
 .archive-table .archive-entry:nth-child(even) {
   background-color: var(--bg-light);
   border-radius: 5px;
+  padding: 20px;
+
 }
 
 .archive-entry {
-  padding: 20px;
+  padding: 0 20px;
   display: grid;
   width: 100%;
   grid-template-columns: 1fr 2fr;
@@ -27,7 +29,7 @@
 .user {
   margin-bottom: 15px;
   grid-area: user;
-  width: 200px;
+  width: 180px;
 }
 
 .description {
@@ -46,6 +48,7 @@
   grid-area: time;
   justify-self: flex-end;
   text-align: right;
+  padding-bottom: 5px;
 
 }
 
@@ -54,6 +57,8 @@
   grid-area: type;
   color: #EB5757;
   font-weight: bold;
+  padding-bottom: 5px;
+
   text-transform: uppercase;
   letter-spacing: 5px;
   font-size: 15pt;
@@ -82,4 +87,11 @@
     font-size: 11pt;
     width: auto;
   }
+}
+
+@media only screen and (min-width: 1600px) {
+  .user {
+    width: 250px;
+  }
+
 }

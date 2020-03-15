@@ -1,0 +1,165 @@
+.newCase {
+  border-radius: 5px;
+  border: none;
+  padding: 5px 10px;
+  width: 100%;
+}
+
+label {
+  margin-right: 5px;
+
+}
+
+
+.labelrow {
+  width: 100%;
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  margin-right: 10px;
+}
+
+.users {
+  width: 350px;
+}
+
+.checkbox {
+  display: block;
+  align-self: flex-end;
+}
+
+.align-center {
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+input[type=checkbox] {
+  padding: 0;
+  width: auto;
+}
+
+.error {
+  color: var(--red);
+  letter-spacing: 3px;
+}
+
+.newCaseForm {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "data image";
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.btn {
+  color: var(--bg-light);
+  border: none;
+  background-color: white;
+  display: -webkit-box;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+  justify-content: center;
+  border-radius: 0 8px 8px 0;
+  font-weight: bold;
+  height: 31px;
+  -webkit-box-pack: end;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+
+#imageurl {
+  border-radius: 8px 0 0 8px;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+form {
+  grid-area: data;
+}
+
+.split-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.image-box {
+  grid-area: image;
+  padding: 0 20px;
+  padding-left: 40px;
+}
+
+textarea {
+  padding: 10px !important;
+}
+
+#imagepicker,
+#save,
+#reset {
+  border: none;
+  padding: 5px 20px;
+  margin-right: 20px;
+  border-radius: 5px;
+}
+
+#imagepicker {
+  background-color: var(--bg-light);
+  box-shadow: var(--shadow);
+  color: var(--text);
+}
+
+#save {
+  background-color: #27AE60;
+  color: var(--light-text);
+}
+
+#reset {
+  color: var(--red);
+  background-color: transparent;
+  border: 1px var(--red) solid;
+}
+
+@media only screen and (max-width: 520px) {
+  .newCaseForm {
+    display: block;
+  }
+
+  .split-row {
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+  }
+
+  .split-row .ml-2 {
+    margin: 0 !important;
+  }
+
+  .users {
+    width: auto;
+  }
+
+  #imagepicker,
+  #save,
+  #reset {
+    margin-right: 10px;
+
+  }
+
+  .image-box {
+    padding-left: 0px;
+    padding-top: 20px;
+  }
+
+}

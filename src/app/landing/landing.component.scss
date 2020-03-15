@@ -15,7 +15,7 @@ main {
     ". . jumbo jumbo jumbo jumbo jumbo jumbo jumbo jumbo . ."
     "cards cards cards cards cards cards cards cards cards cards cards cards";
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 2fr 1fr;
+  grid-template-rows: 2fr auto;
 
 
   section.jumbotron {
@@ -33,7 +33,7 @@ main {
   section.cards {
     background: var(--bg-dark);
     grid-area: cards;
-    padding: 10px;
+    padding: 30px;
   }
 }
 
@@ -172,6 +172,11 @@ h2 {
     text-align: left;
     line-height: 1;
     padding-bottom: 5px;
+  }
+
+  .img-box {
+    margin: 10px 0;
+
   }
 }
 

@@ -14,7 +14,7 @@
       <h3><span class="letterspacing"> LAST 10 CASES</span> - <a routerLink="/admin/cases"
           style="text-decoration: underline;">view more</a> </h3>
       <div id="recentcases">
-        <div *ngFor="let case of cases" class="case-box">
+        <div *ngFor="let case of cases" class="case-box" routerLink='/admin/cases/{{case.id}}'>
           <div id="type" class="{{case.type}}">{{case.type | uppercase}}</div>
           <div id="username">{{case.username}}</div>
           <div id="time">{{case.date}}</div>

@@ -45,7 +45,7 @@ a:any-link {
 html,
 body {
   font-family: var(--roboto);
-  font-size: 13pt;
+  font-size: 11pt;
   width: 100%;
   color: var(--text);
   background-color: var(--bg-dark);
@@ -134,14 +134,11 @@ span.burger {
 /* Let's get this party started */
 ::-webkit-scrollbar {
   width: 10px;
-  margin: 10px 5px;
-
   height: 10px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  margin: 10px 5px;
   background-color: var(--bg-dark);
   border-radius: 10px;
 }
