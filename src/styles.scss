@@ -45,13 +45,11 @@ a:any-link {
 html,
 body {
   font-family: var(--roboto);
-  font-size: 11pt;
   width: 100%;
   color: var(--text);
+  font-size: 11pt;
   background-color: var(--bg-dark);
 }
-
-
 
 
 /* Icons */
@@ -179,6 +177,10 @@ span.burger {
     padding: 20px;
   }
 
+  body {
+    font-size: 12pt;
+  }
+
   .page-layout {
     grid-template-rows: 80px 1fr;
     grid-template-areas: "navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar""body body body body body body body body body body body body";
@@ -186,15 +188,10 @@ span.burger {
 
   .body {
     padding: 20px;
+
   }
+
 
 }
 
-@media only screen and (min-width: 1600px) {
-
-  html,
-  body {
-    font-size: 16pt;
-  }
-
-}
+@media only screen and (min-width: 1600px) {}

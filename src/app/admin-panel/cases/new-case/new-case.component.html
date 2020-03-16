@@ -7,54 +7,82 @@
   </div>
   <div class="body">
     <div class="newCaseForm">
-      <form autocomplete="off" #caseForm="ngForm" (ngSubmit)="onSubmit(caseForm)" novalidate>
+      <form
+        autocomplete="off"
+        #caseForm="ngForm"
+        (ngSubmit)="onSubmit(caseForm)"
+        novalidate
+      >
         <div class="split-row">
           <div class="labelrow users">
             <label for="userID">User Snowflake</label>
-            <div class="error" [hidden]="!fUserID.errors?.required">
-              REQUIRED FIELD
-            </div>
+
             <div class="error" [hidden]="!fUserID.errors?.pattern">
               INVALID SNOWFLAKE
             </div>
 
-            <input #fUserID="ngModel" type="text" id="userID" class="newCase" name="userID" placeholder="123456678847"
-              required [(ngModel)]="userID" [ngClass]="{ 'is-invalid': fUserID.errors }" pattern="^[0-9]{11,23}$" />
+            <input
+              #fUserID="ngModel"
+              type="text"
+              id="userID"
+              class="newCase"
+              name="userID"
+              placeholder="123456678847"
+              required
+              [(ngModel)]="userID"
+              [ngClass]="{ 'is-invalid': fUserID.errors }"
+              pattern="^[0-9]{11,23}$"
+            />
           </div>
           <div class="labelrow checkbox align-center ml-2 mr-0">
-            <input #fDWC="ngModel" type="checkbox" id="DWC" class="newCase" name="DWC" [(ngModel)]="DWC" />
+            <input
+              #fDWC="ngModel"
+              type="checkbox"
+              id="DWC"
+              class="newCase"
+              name="DWC"
+              [(ngModel)]="DWC"
+            />
             <label for="DWC" class="mb-0 ml-1 mr-0">Add DWC</label>
           </div>
         </div>
         <div class="labelrow mr-0 mt-3">
           <label for="description" class="mr-0">Description</label>
-          <div class="error" [hidden]="!fDescription.errors?.required">
-            REQUIRED FIELD
-          </div>
+
           <div class="error" [hidden]="!fDescription.errors?.maxlength">
             MESSAGE TOO LONG (1024 chars)
           </div>
-          <textarea #fDescription="ngModel" id="description" class="newCase" maxlength="1024" name="description"
-            rows="10" required placeholder="Some text here explaining reason for this new case…"
+          <textarea
+            #fDescription="ngModel"
+            id="description"
+            class="newCase"
+            maxlength="1024"
+            name="description"
+            rows="10"
+            required
+            placeholder="Some text here explaining reason for this new case…"
             [(ngModel)]="description"
-            [ngClass]="{ 'is-invalid': fDescription.errors && fDescription.touched }"></textarea>
+            [ngClass]="{
+              'is-invalid': fDescription.errors && fDescription.touched
+            }"
+          ></textarea>
         </div>
         <div class="labelrow mr-0 mt-3">
           <label for="imageupload" class="mr-0">Image</label>
-          <div class="split-row" style="grid-template-columns: 1fr 70px;width: 100%;">
-            <input type="text" #fImageURL="ngModel" id="imageurl" class="newCase" name="imageurl"
-              placeholder="Image URL..." [(ngModel)]="imageurl"
-              [ngClass]="{ 'is-invalid': fImageURL.errors && fImageURL.touched }" />
-            <div class="upload-btn-wrapper">
-
-              <button class="btn"><i class="fas fa-upload"></i></button>
-              <input type="file" accept=".png, .jpeg, .jpg, .gif" name="fileUpload" #fImageUpload="ngModel"
-                name="imageupload" [(ngModel)]="imageupload"
-                [ngClass]="{ 'is-invalid': fImageUpload.errors && fImageUpload.touched }" />
-            </div>
-          </div>
+          <input
+            type="text"
+            #fImageURL="ngModel"
+            id="imageurl"
+            class="newCase"
+            name="imageurl"
+            placeholder="Image URL..."
+            [(ngModel)]="imageurl"
+            [ngClass]="{
+              'is-invalid': fImageURL.errors && fImageURL.touched
+            }"
+          />
         </div>
-        <div class="mr-0 mt-4">
+        <div class="mr-0 mt-4 btns">
           <input type="button" id="imagepicker" value="Add image" />
           <input type="submit" id="save" value="Save" />
           <input type="button" id="reset" value="Reset" />
@@ -62,6 +90,7 @@
       </form>
       <div class="image-box">
         <h3>ATTACHED IMAGES</h3>
+        <div class="files">There are no images currently attached...</div>
       </div>
     </div>
   </div>

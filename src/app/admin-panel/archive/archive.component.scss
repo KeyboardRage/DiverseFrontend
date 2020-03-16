@@ -14,11 +14,15 @@
 
 }
 
+.archive-table {
+  width: 100%;
+}
+
 .archive-entry {
   padding: 0 20px;
   display: grid;
   width: 100%;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: auto auto;
   // grid-template-rows: repeat(4, 1fr);
   grid-row-gap: 0px;
   grid-column-gap: 10px;
@@ -84,7 +88,16 @@
 
   .time,
   .user {
-    font-size: 11pt;
+    font-size: 10pt;
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+
+  .time,
+  .user {
+    font-size: 8pt;
     width: auto;
   }
 }

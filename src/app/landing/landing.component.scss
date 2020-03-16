@@ -20,14 +20,16 @@ main {
 
   section.jumbotron {
     grid-area: jumbo;
-    margin: 3rem 0;
-
+    padding: 3rem;
+    max-width: 900px;
+    justify-self: center;
+    align-self: center;
   }
 
   .text-area {
     background: var(--bg-dark);
     border-radius: var(--radius-big);
-    padding: 3rem;
+    padding: 5rem;
   }
 
   section.cards {
