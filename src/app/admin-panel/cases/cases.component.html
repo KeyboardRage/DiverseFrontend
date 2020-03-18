@@ -6,5 +6,22 @@
     <topnav title="Recent Cases">
     </topnav>
   </div>
-  <div class="body"></div>
-</div>
+  <div class="body" *ngIf="cases$ | async as cases">
+    <input type="search" id="searchbox" placeholder="Search for a case by user id or submitter id"
+      [(ngModel)]="searchText" autocomplete="off">
+    <div class="archive-table">
+      <div class="archive-entry" *ngFor="let case of cases | filter: searchText"
+        [routerLink]="['/admin/cases/', case.case]">
+        <span class="caseid">Case #{{case.case | json}}</span>
+        <span class="casetype">{{case.flags | bitwise}}</span>
+        <span class="time">{{case.created | date:'medium'}}</span>
+        <span class="user code">
+          <span *ngIf="case.user_tag === 'Unknown#0000'; else elseBlock">{{case.user}}</span>
+          <ng-template #elseBlock>{{case.user_tag}}</ng-template>
+        </span>
+        <span class="description">{{case.data[0].text}}</span>
+
+      </div>
+
+    </div>
+  </div>

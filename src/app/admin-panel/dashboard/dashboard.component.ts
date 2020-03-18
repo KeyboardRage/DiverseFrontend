@@ -1,4 +1,8 @@
 import { Component, OnInit } from "@angular/core";
+import { CasesService } from "../../services/cases.service";
+import { map } from "rxjs/operators";
+import { ActivatedRoute, Router, RouterLink } from "@angular/router";
+import { CookieService } from "ngx-cookie-service";
 
 @Component({
   selector: "app-dashboard",
@@ -6,30 +10,12 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./dashboard.component.scss"]
 })
 export class DashboardComponent implements OnInit {
-  cases = [
-    {
-      type: "warn",
-      username: "Freud#1764",
-      date: "12.03.20",
-      id: "1234"
-    },
-    {
-      type: "kick",
-      username: "Freud#1764",
-      date: "12.03.20"
-    },
-    {
-      type: "ban",
-      username: "Freud#1764",
-      date: "12.03.20"
-    },
-    {
-      type: "mute",
-      username: "Freud#1764",
-      date: "12.03.20"
-    }
-  ];
-  constructor() {}
+  constructor(private casesService: CasesService) {}
 
-  ngOnInit(): void {}
+  cases$: any;
+  ngOnInit(): void {
+    this.cases$ = this.casesService
+      .getCases()
+      .pipe(map((data: any) => data.data));
+  }
 }

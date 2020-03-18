@@ -9,6 +9,8 @@ import { CasesComponent } from "./admin-panel/cases/cases.component";
 import { ArchiveComponent } from "./admin-panel/archive/archive.component";
 import { LoginComponent } from "./admin-panel/login/login.component";
 import { NewCaseComponent } from "./admin-panel/cases/new-case/new-case.component";
+import { CaseComponent } from "./admin-panel/case/case.component";
+import { AuthGuardService } from "./services/auth-guard.service";
 
 const routes: Routes = [
   { path: "", component: LandingComponent },
@@ -16,19 +18,32 @@ const routes: Routes = [
   {
     path: "admin",
     component: IndexComponent,
+    canActivate: [AuthGuardService],
     children: [
-      { path: "", component: DashboardComponent, pathMatch: "full" },
-      { path: "tickets", component: TicketsComponent, pathMatch: "full" },
-      { path: "bans", component: BansComponent, pathMatch: "full" },
-      { path: "cases", component: CasesComponent, pathMatch: "full" },
+      {
+        path: "",
+        component: DashboardComponent
+      },
+      {
+        path: "tickets",
+        component: TicketsComponent
+      },
+      {
+        path: "bans",
+        component: BansComponent
+      },
+      {
+        path: "cases",
+        component: CasesComponent
+      },
+      { path: "cases/:id", component: CaseComponent },
       {
         path: "new-case",
-        component: NewCaseComponent,
-        pathMatch: "full"
+        component: NewCaseComponent
       },
-      { path: "archive", component: ArchiveComponent, pathMatch: "full" },
+      { path: "archive", component: ArchiveComponent },
       { path: "**", component: DashboardComponent }, // Error 404 on Admin
-      { path: "**", redirectTo: "admin", pathMatch: "full" }
+      { path: "**", redirectTo: "admin" }
     ]
   },
   { path: "**", component: LandingComponent }, // Error 404

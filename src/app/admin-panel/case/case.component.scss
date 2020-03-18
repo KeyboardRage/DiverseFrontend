@@ -11,7 +11,36 @@
   background-color: var(--bg-light);
   border-radius: 5px;
   padding: 20px;
+}
 
+.button {
+  cursor: pointer;
+  padding: 5px 25px;
+  margin-right: 20px;
+  border-radius: 5px;
+  background-color: var(--bg-light);
+  box-shadow: var(--shadow);
+  color: var(--text);
+}
+
+
+.casetop {
+  display: grid;
+  grid-template-columns: 130px 200px 130px auto;
+  padding-bottom: 20px;
+  -webkit-box-align: center;
+  align-items: center;
+  row-gap: 5px;
+}
+
+.casetop h3 {
+  margin-bottom: 0;
+}
+
+h3 {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .archive-table {
@@ -19,21 +48,24 @@
 }
 
 .archive-entry {
-  cursor: pointer;
   padding: 0 20px;
-  display: grid;
   width: 100%;
-  grid-template-columns: auto 1fr;
-  grid-row-gap: 0px;
-  grid-column-gap: 10px;
-  grid-template-areas: "caseid type""user time""description description";
-  margin-bottom: 20px;
   word-break: break-all;
+  margin-bottom: 20px;
+}
+
+.archive-entry a {
+  text-decoration: underline;
+}
+
+.archive-entry h4 {
+  text-transform: uppercase;
 }
 
 .user {
   margin-bottom: 15px;
   grid-area: user;
+  width: 180px;
 }
 
 .description {
@@ -89,6 +121,19 @@
   .time,
   .user {
     font-size: 10pt;
+    width: auto;
+  }
+
+  .casetop {
+    grid-template-columns: repeat(2, auto);
+    -webkit-column-gap: 10px;
+    -moz-column-gap: 10px;
+    column-gap: 10px;
+  }
+
+  .button {
+    margin-right: 15px;
+    padding: 5px 15px;
   }
 }
 
@@ -97,5 +142,13 @@
   .time,
   .user {
     font-size: 8pt;
+    width: auto;
   }
+}
+
+@media only screen and (min-width: 1600px) {
+  .user {
+    width: 250px;
+  }
+
 }

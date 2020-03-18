@@ -1,0 +1,54 @@
+<div class="page-layout">
+  <div class="sidebar">
+    <sidenav></sidenav>
+  </div>
+  <div class="navbar">
+    <topnav title="Case Inspection" subheader="{{ 'Case Id ' + caseID }}">
+    </topnav>
+  </div>
+  <div class="body" *ngIf="cases$ | async as cases">
+    <div class="casetop">
+      <h3>Issuer</h3>
+      <span *ngIf="cases.creator_tag === 'Unknown#0000'; else elseBlock">{{
+        cases.creator
+      }}</span>
+      <ng-template #elseBlock>{{ cases.creator_tag }}</ng-template>
+      <h3>User</h3>
+      <span *ngIf="cases.user_tag === 'Unknown#0000'; else elseUsername">{{
+        cases.user
+      }}</span>
+      <ng-template #elseUsername>{{ cases.user_tag }}</ng-template>
+      <h3>Type</h3>
+      <span>{{ cases.flags | bitwise }}</span>
+      <h3>Created</h3>
+      <span>{{ cases.created | date: "medium" }}</span>
+    </div>
+    <div class="d-flex mb-5">
+      <div class="button">View files</div>
+      <div class="button">Warn user</div>
+    </div>
+    <h3>Entries</h3>
+    <div class="archive-table mt-3">
+      <div class="archive-entry" *ngFor="let case of cases.data; index as i">
+        <h4>
+          Initiated by {{ case.creator }}
+          <!-- <span *ngIf="case.creator_tag === 'Unknown#0000'; else elseBlock">{{case.creator}}</span>
+          <ng-template #elseBlock>{{case.creator_tag}}</ng-template> -->
+        </h4>
+
+        <span>{{ case.text }}</span>
+        <p></p>
+        <span
+          ><span class="code">{{ i + 1 }}</span> &mdash;
+          {{ case.created | date: "dd LLLL yyyy" }}</span
+        >
+        <span *ngIf="case.image">
+          -
+          <a href="https://i.diverse.graphics/{{ case.image }}" target="_blank"
+            >Attachment</a
+          ></span
+        >
+      </div>
+    </div>
+  </div>
+</div>

@@ -15,8 +15,11 @@ import { CasesComponent } from "./admin-panel/cases/cases.component";
 import { ArchiveComponent } from "./admin-panel/archive/archive.component";
 import { IndexComponent } from "./admin-panel/index.component";
 import { NewCaseComponent } from "./admin-panel/cases/new-case/new-case.component";
-
 import { FormsModule } from "@angular/forms";
+import { CaseComponent } from "./admin-panel/case/case.component";
+import { BitwisePipe } from "./pipes/bitwise.pipe";
+import { FilterPipe } from "./pipes/filter.pipe";
+import { CookieService } from "ngx-cookie-service";
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,10 +34,13 @@ import { FormsModule } from "@angular/forms";
     CasesComponent,
     ArchiveComponent,
     IndexComponent,
-    NewCaseComponent
+    NewCaseComponent,
+    CaseComponent,
+    BitwisePipe,
+    FilterPipe
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
