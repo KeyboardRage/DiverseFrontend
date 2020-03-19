@@ -7,8 +7,7 @@
     </topnav>
   </div>
   <div class="body" *ngIf="cases$ | async as cases">
-    <input type="search" id="searchbox" placeholder="Search for a case by user id or submitter id"
-      [(ngModel)]="searchText" autocomplete="off">
+    <input type="search" id="searchbox" placeholder="Search for a case" [(ngModel)]="searchText" autocomplete="off">
     <div class="archive-table">
       <div class="archive-entry" *ngFor="let case of cases | filter: searchText"
         [routerLink]="['/admin/cases/', case.case]">
