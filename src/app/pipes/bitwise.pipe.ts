@@ -31,7 +31,7 @@ export class BitwisePipe implements PipeTransform {
         ? "Temp-ban"
         : flag & flags.ban
         ? "Ban"
-        : "None";
+        : "Note";
 
     return label;
   }

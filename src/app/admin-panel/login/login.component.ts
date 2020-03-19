@@ -10,6 +10,6 @@ import { ActivatedRoute } from "@angular/router";
 export class LoginComponent {
   constructor() {
     window.location.href =
-      "https://api.diverse.graphics/public/login?redirect=https://localhost:4200/admin/";
+      "https://api.diverse.graphics/public/login?redirect=https://diverse.graphics/admin/";
   }
 }
