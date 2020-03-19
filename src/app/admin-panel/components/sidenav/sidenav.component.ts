@@ -19,7 +19,7 @@ export class SidenavComponent implements OnInit {
   }
   logout() {
     this.cookieService.delete("session", "/", "", false, "Lax");
-    this.router.navigate(["login"]);
+    this.router.navigate(["/"]);
   }
   constructor(private cookieService: CookieService, private router: Router) {}
 

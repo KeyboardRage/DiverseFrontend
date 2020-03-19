@@ -40,6 +40,17 @@ li {
   display: none;
 }
 
+#logout {
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+
+#logout:hover {
+  cursor: pointer;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  color: var(--light-text);
+}
 
 @media only screen and (max-width: 520px) {
   .sidenav-container {
