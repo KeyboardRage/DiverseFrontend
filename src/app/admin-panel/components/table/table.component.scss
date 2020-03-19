@@ -9,7 +9,7 @@
   grid-template-columns: 1fr;
   grid-row-gap: 0px;
   grid-column-gap: 10px;
-  word-break: break-all;
+  word-break: break-word;
   padding: 20px;
   position: relative;
   -webkit-transition: 0.2s all;
@@ -41,9 +41,8 @@
 }
 
 .time {
-  justify-self: flex-end;
-  text-align: right;
   padding-bottom: 5px;
+  text-align: right;
 
 }
 
@@ -85,17 +84,19 @@ h3 {
   .archive-entry {
     padding: 15px;
   }
-
-  .time,
-  .user {
-    font-size: 10pt;
-  }
 }
 
-@media only screen and (max-width: 330px) {
+@media only screen and (max-width: 620px) {
+  #userid {
+    display: none;
+  }
 
-  .time,
-  .user {
-    font-size: 8pt;
+  .userdetails {
+    margin-top: 15px;
+  }
+
+  .time {
+    text-align: left;
+    margin-top: 5px;
   }
 }
