@@ -26,6 +26,7 @@ export class AuthGuardService {
     //   "session",
     //   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODcwMzM4MDg1MTkxNjgyNyIsInVzZXJuYW1lIjoiRnJldWQiLCJhdmF0YXIiOiI4NGMxODFhYzVkMDI1ODJhNmVjZTRiNjIzZjYwZTcyYiIsImRpc2NyaW1pbmF0b3IiOiI4OTQ3IiwibG9jYWxlIjoiZW4tR0IiLCJtZmFfZW5hYmxlZCI6dHJ1ZSwiZmxhZ3MiOjAsInByb3ZpZGVyIjoiZGlzY29yZCIsImZldGNoZWRBdCI6IjIwMjAtMDMtMThUMTY6NTQ6NDguMzA4WiIsImV4cGlyZXNfaW4iOjU5OTgwMCwiaWF0IjoxNTg0NTUwNDg4LCJleHAiOjE1ODUxNTUyODh9.oX-y7fSEFKwRbp2Bb0pYGNlbAkqjboy3DJ6M-XnBCKg"
     // );
+    // return true;
 
     if (this.cookieService.get("session")) {
       // this.authService.tokenVerify(this.cookieService.get("jwt"));

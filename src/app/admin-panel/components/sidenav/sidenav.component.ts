@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import * as $ from "jquery";
 import { CookieService } from "ngx-cookie-service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "sidenav",
@@ -17,10 +18,10 @@ export class SidenavComponent implements OnInit {
     );
   }
   logout() {
-    console.log("hello");
-    this.cookieService.delete("jwt");
+    this.cookieService.delete("session", "/", "localhost", false, "Lax");
+    this.router.navigate(["login"]);
   }
-  constructor(private cookieService: CookieService) {}
+  constructor(private cookieService: CookieService, private router: Router) {}
 
   ngOnInit(): void {}
 }

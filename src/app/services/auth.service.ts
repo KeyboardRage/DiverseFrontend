@@ -42,7 +42,6 @@ export class AuthService {
     let user = this.allowedUsers.filter(item => {
       return decoded.id === item;
     });
-    console.log(user.length);
 
     if (user.length != 0) {
       return true;

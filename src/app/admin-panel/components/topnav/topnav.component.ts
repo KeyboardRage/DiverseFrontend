@@ -25,16 +25,19 @@ export class TopnavComponent implements OnInit {
   @Input() title: string = "";
   @Input() subheader?: string = "";
   @Input() tooltip?: string = "";
+  profilePic;
 
-  decoded: any = JWT(this.cookieService.get("session"));
+  constructor(private cookieService: CookieService) {
+    if (this.cookieService.get("session")) {
+      let decoded: any = JWT(this.cookieService.get("session"));
 
-  profilePic =
-    "https://cdn.discordapp.com/avatars/" +
-    this.decoded.id +
-    "/" +
-    this.decoded.avatar;
-
-  constructor(private cookieService: CookieService) {}
+      this.profilePic =
+        "https://cdn.discordapp.com/avatars/" +
+        decoded.id +
+        "/" +
+        decoded.avatar;
+    }
+  }
 
   ngOnInit(): void {}
 }
