@@ -20,6 +20,7 @@ import { CaseComponent } from "./admin-panel/case/case.component";
 import { BitwisePipe } from "./pipes/bitwise.pipe";
 import { FilterPipe } from "./pipes/filter.pipe";
 import { CookieService } from "ngx-cookie-service";
+import { TableComponent } from './admin-panel/components/table/table.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,8 @@ import { CookieService } from "ngx-cookie-service";
     NewCaseComponent,
     CaseComponent,
     BitwisePipe,
-    FilterPipe
+    FilterPipe,
+    TableComponent
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
   providers: [CookieService],
