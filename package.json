@@ -22,7 +22,7 @@
     "@fortawesome/fontawesome-free": "^5.12.1",
     "@types/jquery": "^3.3.33",
     "fuse.js": "^5.0.5-beta",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jwt-decode": "^2.2.0",
     "ngx-cookie-service": "^3.0.2",
     "rxjs": "~6.5.4",
