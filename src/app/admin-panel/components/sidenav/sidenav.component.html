@@ -1,17 +1,45 @@
 <div class="sidenav-container">
-  <div class="close" (click)="closeNavbar()"><i class="fas fa-times-circle closeIcon"></i></div>
+  <div class="close" (click)="closeNavbar()">
+    <i class="fas fa-times-circle closeIcon"></i>
+  </div>
 
   <ul id="main">
-    <li><a href="#" routerLink="/admin" routerLinkActive="active"
-        [routerLinkActiveOptions]="{exact: true}">Dashboard</a></li>
-    <li><a href="#" routerLink="/admin/tickets" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Open
-        tickets</a></li>
-    <li><a href="#" routerLink="/admin/bans" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Recent
-        bans</a></li>
-    <li><a href="#" routerLink="/admin/cases" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Recent
-        cases</a></li>
-    <li><a href="#" routerLink="/admin/archive" routerLinkActive="active"
-        [routerLinkActiveOptions]="{exact: true}">Archive</a></li>
+    <li>
+      <a
+        href="#"
+        routerLink="/admin"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Dashboard</a
+      >
+    </li>
+    <!-- <li>
+      <a
+        href="#"
+        routerLink="/admin/tickets"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Open tickets</a
+      >
+    </li> -->
+    <li>
+      <a
+        href="#"
+        routerLink="/admin/bans"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Bans</a
+      >
+    </li>
+    <li>
+      <a
+        href="#"
+        routerLink="/admin/cases"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Cases</a
+      >
+    </li>
   </ul>
   <div id="admin">
     <div class="subheader">ADMINSTRATOR</div>
@@ -24,5 +52,4 @@
     <li>LOGOUT</li>
   </ul>
   <div class="logout"><i class="fas fa-sign-out-alt logoutIcon"></i></div>
-
 </div>

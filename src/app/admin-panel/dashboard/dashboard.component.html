@@ -3,25 +3,38 @@
     <sidenav></sidenav>
   </div>
   <div class="navbar">
-    <topnav button="true" navtitle="Admin Panel" subheader="Overview" tooltip="New&nbsp;case"
-      buttonLink="/admin/new-case">
+    <topnav
+      button="true"
+      navtitle="Admin Panel"
+      subheader="Overview"
+      tooltip="New&nbsp;case"
+      buttonLink="/admin/new-case"
+    >
     </topnav>
   </div>
   <div class="body">
     <div class="alert" [hidden]="true">
       There are 2 outstanding staff tickets! —
-      <a routerLink="/admin/tickets" style="text-decoration: underline;">Click here to handle them</a>
+      <a routerLink="/admin/tickets" style="text-decoration: underline;"
+        >Click here to handle them</a
+      >
     </div>
     <h3>
       <span class="letterspacing"> LAST 10 CASES</span> -
-      <a routerLink="/admin/cases" style="text-decoration: underline;">view more</a>
+      <a routerLink="/admin/cases" style="text-decoration: underline;"
+        >view more</a
+      >
     </h3>
     <div id="recentcases" *ngIf="cases$ | async as cases">
-      <div *ngFor="let case of cases | slice: 0:9" class="case-box" routerLink="/admin/cases/{{ case.case }}">
+      <div
+        *ngFor="let case of cases | slice: 0:9"
+        class="case-box"
+        routerLink="/admin/cases/{{ case.case }}"
+      >
         <div id="type" class="{{ case.flags | bitwise }}">
           {{ case.flags | bitwise }}
         </div>
-        <div id="username" style="color:var(--light-text)">
+        <div id="username" style="color: var(--light-text);">
           <span *ngIf="case.user_tag != 'Unknown#0000'; else userID">{{
             case.user_tag
           }}</span>
@@ -33,7 +46,7 @@
         </div>
       </div>
     </div>
-    <h3 class="pt-4">
+    <!-- <h3 class="pt-4">
       <span class="letterspacing"> OPEN TICKETS</span> -
       <a routerLink="/admin/tickets" style="text-decoration: underline;">view more</a>
     </h3>
@@ -48,6 +61,6 @@
           {{ case.created | date: "medium" }}
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>

@@ -1,21 +1,39 @@
 <div *ngIf="cases$ | async as cases">
-  <input type="search" id="searchbox" placeholder="Search for a case" [(ngModel)]="searchText" autocomplete="off">
+  <input
+    type="search"
+    id="searchbox"
+    placeholder="Search..."
+    [(ngModel)]="searchText"
+    autocomplete="off"
+  />
   <div class="archive-table">
-    <div class="archive-entry" [routerLink]="['/admin/cases/', case.case]"
-      *ngFor="let case of cases | filter: searchText">
-      <div class="casetop">
-        <h3 class="d-inline">Case #{{case.case | json}}</h3>
-        <span class="casetype ml-2 {{case.flags | bitwise}}">{{case.flags | bitwise}}</span>
+    <div class="archive-entry" *ngFor="let case of cases | filter: searchText">
+      <div
+        class="casetop"
+        (mouseenter)="mouseOver($event)"
+        (mouseleave)="mouseOff($event)"
+        [routerLink]="['/admin/cases/', case.case]"
+      >
+        <h3 class="d-inline">Case #{{ case.case | json }}</h3>
+        <span class="casetype ml-2 {{ case.flags | bitwise }}">{{
+          case.flags | bitwise
+        }}</span>
       </div>
-      <div class="d-flex justify-content-between align-items-center flex-wrap userdetails">
+      <div
+        class="d-flex justify-content-between align-items-center flex-wrap userdetails"
+      >
         <span>
           User:
-          <span class="code" id="userid">{{case.user}}</span>
-          <span class="code ml-1">{{case.user_tag}}</span></span>
-        <span class="time">By: <span
-            style="color: var(--light-text);">{{case.creator_tag}}</span><br>{{case.created | date:'medium'}}</span>
+          <span class="code" id="userid">{{ case.user }}</span>
+          <span class="code ml-1">{{ case.user_tag }}</span></span
+        >
+        <span class="time"
+          >By:
+          <span style="color: var(--light-text);">{{ case.creator_tag }}</span
+          ><br />{{ case.created | date: "medium" }}</span
+        >
       </div>
-      <span class="description mt-3">{{case.data[0].text}}</span>
+      <span class="description mt-3">{{ case.data[0].text }}</span>
     </div>
   </div>
 </div>

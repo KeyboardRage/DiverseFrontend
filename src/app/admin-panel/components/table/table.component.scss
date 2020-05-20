@@ -14,17 +14,9 @@
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
   bottom: 0;
-  cursor: pointer;
-
 }
-
-.archive-entry:hover {
-  bottom: 5px;
-  -webkit-transition: 0.2s all;
-  transition: 0.2s all;
-  box-shadow: var(--shadow);
-  border-radius: 5px;
-  background-color: var(--bg-light);
+.casetop {
+  cursor: pointer;
 }
 
 .user {
@@ -44,7 +36,6 @@
 .time {
   padding-bottom: 5px;
   text-align: right;
-
 }
 
 .casetype {
@@ -66,7 +57,6 @@
 
 .Note {
   background-color: var(--Note);
-
 }
 
 .DWC {
@@ -96,7 +86,6 @@
   background-color: var(--InProgress);
 }
 
-
 #searchbox {
   width: 100%;
   padding: 20px;
@@ -106,7 +95,6 @@
   background-color: var(--bg-light);
   outline: none;
   border-radius: 5px;
-
 }
 
 h3 {
@@ -114,7 +102,6 @@ h3 {
   text-transform: uppercase;
   letter-spacing: 2px;
 }
-
 
 @media only screen and (max-width: 820px) {
   .archive-entry {
