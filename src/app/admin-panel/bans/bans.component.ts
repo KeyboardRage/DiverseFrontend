@@ -12,7 +12,7 @@ export class BansComponent implements OnInit {
   cases: any;
   ngOnInit(): void {
     this.cases = this.casesService
-      .getCases()
+      .getBans()
       .pipe(map((data: any) => data.data));
   }
 }

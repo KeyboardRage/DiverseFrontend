@@ -33,9 +33,12 @@ export class AuthGuardService {
       // return true;
       if (this.authService.userCheck(this.cookieService.get("session"))) {
         return true;
+      } else {
+        this.router.navigate(["/errors/404"]);
+        return false;
       }
     }
-    this.router.navigate(["login"]);
+    this.router.navigate(["/login"]);
     return false;
   }
 }

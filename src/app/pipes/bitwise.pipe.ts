@@ -20,7 +20,7 @@ export class BitwisePipe implements PipeTransform {
       flag & flags.note
         ? "Note"
         : flag & flags.warn
-        ? "Warning"
+        ? "Warn"
         : flag & flags.mute
         ? "Mute"
         : flag & flags.dwc

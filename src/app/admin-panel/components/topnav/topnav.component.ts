@@ -22,7 +22,7 @@ export class TopnavComponent implements OnInit {
   }
   @Input() button?: boolean;
   @Input() buttonLink? = "";
-  @Input() title: string = "";
+  @Input() navtitle: string = "";
   @Input() subheader?: string = "";
   @Input() tooltip?: string = "";
   profilePic;

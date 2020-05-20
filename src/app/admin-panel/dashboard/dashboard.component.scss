@@ -71,32 +71,41 @@
 }
 
 .letterspacing {
-  letter-spacing: 3px;
+  letter-spacing: .05em;
 }
 
-.Warn,
 .Note {
-  color: var(--blue);
+  color: var(--Note);
+
+}
+
+.DWC {
+  color: var(--DWC);
+}
+
+.Warn {
+  color: var(--Warn);
 }
 
 .Kick {
-  color: #F2994A;
+  color: var(--Kick);
 }
 
 .Ban,
 .Open,
 .None {
-  color: #EB5757;
+  color: var(--Ban);
 }
 
 .Mute,
 .Closed {
-  color: #F2C94C;
+  color: var(--Mute);
 }
 
 .Inprogress {
-  color: #27AE60;
+  color: var(--InProgress);
 }
+
 
 
 @media only screen and (max-width: 520px) {

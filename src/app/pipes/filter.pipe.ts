@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from "@angular/core";
 import { filter, retry } from "rxjs/operators";
 
 @Pipe({
-  name: "filter"
+  name: "filter",
 })
 export class FilterPipe implements PipeTransform {
   transform(items, searchTerm: string) {
@@ -10,20 +10,31 @@ export class FilterPipe implements PipeTransform {
     if (!searchTerm) return items;
 
     searchTerm = searchTerm.toLowerCase();
-    const result = items.filter(item => {
+
+    const result = items.filter((item) => {
       return item.case.toString() == searchTerm;
     });
     if (result.length === 0) {
-      const result = items.filter(item => {
-        const usernameFound = item.user_tag.includes(searchTerm);
+      const result = items.filter((item) => {
+        const usernameFound = item.user_tag.toLowerCase().includes(searchTerm);
         const creatorFound = item.creator.includes(searchTerm);
+        const userFound = item.user === searchTerm;
         const creatornameFound = item.creator_tag
           .toLowerCase()
           .includes(searchTerm);
-        return usernameFound || creatorFound || creatornameFound;
+        const message = item.data[0].text.includes(searchTerm);
+        return (
+          usernameFound ||
+          creatorFound ||
+          creatornameFound ||
+          userFound ||
+          message
+        );
       });
       if (result.length === 0) {
-        const result = items.filter(item => {
+        const result = items.filter((item) => {
+          console.log("here");
+
           return item.data[0].text.includes(searchTerm);
         });
         return result;

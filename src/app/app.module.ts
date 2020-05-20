@@ -21,6 +21,7 @@ import { BitwisePipe } from "./pipes/bitwise.pipe";
 import { FilterPipe } from "./pipes/filter.pipe";
 import { CookieService } from "ngx-cookie-service";
 import { TableComponent } from "./admin-panel/components/table/table.component";
+import { Error404Component } from './admin-panel/error404/error404.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import { TableComponent } from "./admin-panel/components/table/table.component";
     CaseComponent,
     BitwisePipe,
     FilterPipe,
-    TableComponent
+    TableComponent,
+    Error404Component
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
   providers: [CookieService],

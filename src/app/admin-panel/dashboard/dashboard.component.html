@@ -1,35 +1,53 @@
-  <div class="page-layout">
-    <div class="sidebar">
-      <sidenav></sidenav>
+<div class="page-layout">
+  <div class="sidebar">
+    <sidenav></sidenav>
+  </div>
+  <div class="navbar">
+    <topnav button="true" navtitle="Admin Panel" subheader="Overview" tooltip="New&nbsp;case"
+      buttonLink="/admin/new-case">
+    </topnav>
+  </div>
+  <div class="body">
+    <div class="alert" [hidden]="true">
+      There are 2 outstanding staff tickets! —
+      <a routerLink="/admin/tickets" style="text-decoration: underline;">Click here to handle them</a>
     </div>
-    <div class="navbar">
-      <topnav button="true" title="Admin Panel" subheader="Overview" tooltip="New&nbsp;case"
-        buttonLink="/admin/new-case">
-      </topnav>
-    </div>
-    <div class="body">
-      <div class="alert" [hidden]="true">There are 2 outstanding staff tickets! — <a routerLink="/admin/tickets"
-          style="text-decoration: underline;">Click here
-          to handle them</a> </div>
-      <h3><span class="letterspacing"> LAST 10 CASES</span> - <a routerLink="/admin/cases"
-          style="text-decoration: underline;">view more</a> </h3>
-      <div id="recentcases" *ngIf="cases$ | async as cases">
-        <div *ngFor="let case of cases | slice:0:9" class="case-box" routerLink='/admin/cases/{{case.case}}'>
-          <div id="type" class="{{case.flags | bitwise}}">{{case.flags | bitwise}}</div>
-          <div id="username">{{case.user}}</div>
-          <div id="time"><span class="code">#{{case.case}}</span> &mdash; {{case.created | date:'medium'}}
-          </div>
+    <h3>
+      <span class="letterspacing"> LAST 10 CASES</span> -
+      <a routerLink="/admin/cases" style="text-decoration: underline;">view more</a>
+    </h3>
+    <div id="recentcases" *ngIf="cases$ | async as cases">
+      <div *ngFor="let case of cases | slice: 0:9" class="case-box" routerLink="/admin/cases/{{ case.case }}">
+        <div id="type" class="{{ case.flags | bitwise }}">
+          {{ case.flags | bitwise }}
+        </div>
+        <div id="username" style="color:var(--light-text)">
+          <span *ngIf="case.user_tag != 'Unknown#0000'; else userID">{{
+            case.user_tag
+          }}</span>
+          <ng-template #userID>{{ case.user }}</ng-template>
+        </div>
+        <div id="time">
+          <span class="code">#{{ case.case }}</span> &mdash;
+          {{ case.created | date: "medium" }}
         </div>
       </div>
-      <h3 class="pt-4"><span class="letterspacing"> OPEN TICKETS</span> - <a routerLink="/admin/tickets"
-          style="text-decoration: underline;">view more</a> </h3>
-      <div id="recentcases" *ngIf="cases$ | async as cases">
-        <div *ngFor="let case of cases | slice:0:9" class="case-box" routerLink='/admin/cases/{{case.case}}'>
-          <div id="type" class="{{case.flags | bitwise}}">{{case.flags | bitwise}}</div>
-          <div id="username">{{case.user}}</div>
-          <div id="time"><span class="code">#{{case.case}}</span> &mdash; {{case.created | date:'medium'}}
-          </div>
+    </div>
+    <h3 class="pt-4">
+      <span class="letterspacing"> OPEN TICKETS</span> -
+      <a routerLink="/admin/tickets" style="text-decoration: underline;">view more</a>
+    </h3>
+    <div id="recentcases" *ngIf="cases$ | async as cases">
+      <div *ngFor="let case of cases | slice: 0:9" class="case-box" routerLink="/admin/cases/{{ case.case }}">
+        <div id="type" class="{{ case.flags | bitwise }}">
+          {{ case.flags | bitwise }}
+        </div>
+        <div id="username">{{ case.user }}</div>
+        <div id="time">
+          <span class="code">#{{ case.case }}</span> &mdash;
+          {{ case.created | date: "medium" }}
         </div>
       </div>
     </div>
   </div>
+</div>

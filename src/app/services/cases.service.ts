@@ -18,4 +18,7 @@ export class CasesService {
   getCases() {
     return this.http.get("https://api.diverse.graphics/public/cases/");
   }
+  getBans() {
+    return this.http.get("https://api.diverse.graphics/public/cases?flags=128");
+  }
 }

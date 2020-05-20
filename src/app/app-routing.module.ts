@@ -11,10 +11,12 @@ import { LoginComponent } from "./admin-panel/login/login.component";
 import { NewCaseComponent } from "./admin-panel/cases/new-case/new-case.component";
 import { CaseComponent } from "./admin-panel/case/case.component";
 import { AuthGuardService } from "./services/auth-guard.service";
+import { Error404Component } from "./admin-panel/error404/error404.component";
 
 const routes: Routes = [
   { path: "", component: LandingComponent },
   { path: "login", component: LoginComponent },
+  { path: "errors/:error", component: Error404Component },
   {
     path: "admin",
     component: IndexComponent,
