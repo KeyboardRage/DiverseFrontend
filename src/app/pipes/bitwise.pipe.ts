@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from "@angular/core";
 
 @Pipe({
-  name: "bitwise"
+  name: "bitwise",
 })
 export class BitwisePipe implements PipeTransform {
   transform(flag) {
@@ -14,7 +14,7 @@ export class BitwisePipe implements PipeTransform {
       kick: 32,
       tempban: 64,
       ban: 128,
-      archived: 256
+      archived: 256,
     };
     let label =
       flag & flags.note

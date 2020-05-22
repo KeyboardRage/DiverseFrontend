@@ -21,7 +21,9 @@ import { BitwisePipe } from "./pipes/bitwise.pipe";
 import { FilterPipe } from "./pipes/filter.pipe";
 import { CookieService } from "ngx-cookie-service";
 import { TableComponent } from "./admin-panel/components/table/table.component";
-import { Error404Component } from './admin-panel/error404/error404.component';
+import { Error404Component } from "./admin-panel/error404/error404.component";
+import { NgxDropzoneModule } from "ngx-dropzone";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,10 +43,16 @@ import { Error404Component } from './admin-panel/error404/error404.component';
     BitwisePipe,
     FilterPipe,
     TableComponent,
-    Error404Component
+    Error404Component,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule,
+    NgxDropzoneModule,
+  ],
   providers: [CookieService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

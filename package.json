@@ -25,6 +25,7 @@
     "jquery": "^3.5.1",
     "jwt-decode": "^2.2.0",
     "ngx-cookie-service": "^3.0.4",
+    "ngx-dropzone": "^2.2.2",
     "rxjs": "^6.5.5",
     "tslib": "^1.13.0",
     "zone.js": "^0.10.3"

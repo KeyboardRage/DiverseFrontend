@@ -5,7 +5,7 @@
   <div class="navbar">
     <topnav navtitle="New Case"> </topnav>
   </div>
-  <div class="body">
+  <div class="body" style="padding: 0;">
     <div class="newCaseForm">
       <form
         autocomplete="off"
@@ -14,12 +14,8 @@
         novalidate
       >
         <div class="split-row">
-          <div class="labelrow users">
+          <div class="labelrow">
             <label for="userID">User Snowflake</label>
-
-            <div class="error" [hidden]="!fUserID.errors?.pattern">
-              INVALID SNOWFLAKE
-            </div>
 
             <input
               #fUserID="ngModel"
@@ -33,32 +29,53 @@
               [ngClass]="{ 'is-invalid': fUserID.errors }"
               pattern="^[0-9]{11,23}$"
             />
+            <div *ngIf="fUserID.errors">
+              <div class="error" *ngIf="fUserID.errors.pattern">
+                INVALID SNOWFLAKE
+              </div>
+              <div class="error" *ngIf="fUserID.errors.required">
+                REQUIRED
+              </div>
+            </div>
           </div>
-          <div class="labelrow checkbox align-center ml-2 mr-0">
-            <input
-              #fDWC="ngModel"
-              type="checkbox"
-              id="DWC"
-              class="newCase"
-              name="DWC"
-              [(ngModel)]="DWC"
-            />
-            <label for="DWC" class="mb-0 ml-1 mr-0">Add DWC</label>
+
+          <div class="labelrow">
+            <label for="userID">Case Type:</label>
+
+            <select
+              name="caseType"
+              class="newCase select"
+              [(ngModel)]="caseType"
+              #fCaseType="ngModel"
+              (change)="highlightType($event)"
+              required
+            >
+              <option selected="selected" disabled value=""
+                >Choose a type...</option
+              >
+              <option value="Note">Note</option>
+              <option value="DWC">DWC</option>
+              <option value="Kick">Kick</option>
+              <option value="Ban">Ban</option>
+              <option value="Warn">Warn</option>
+              <option value="Mute">Mute</option>
+            </select>
+            <div class="error" *ngIf="fCaseType.value == ''">
+              REQUIRED
+            </div>
           </div>
         </div>
+
         <div class="labelrow mr-0 mt-3">
           <label for="description" class="mr-0">Description</label>
 
-          <div class="error" [hidden]="!fDescription.errors?.maxlength">
-            MESSAGE TOO LONG (1024 chars)
-          </div>
           <textarea
             #fDescription="ngModel"
             id="description"
             class="newCase"
-            maxlength="1024"
             name="description"
             rows="10"
+            style="resize: none;"
             required
             placeholder="Some text here explaining reason for this new case…"
             [(ngModel)]="description"
@@ -66,31 +83,65 @@
               'is-invalid': fDescription.errors && fDescription.touched
             }"
           ></textarea>
+          <div class="error" *ngIf="description?.length > 1024">
+            MESSAGE TOO LONG (1024 chars)
+          </div>
+          <div *ngIf="fDescription.errors">
+            <div class="error" *ngIf="fDescription.errors.required">
+              REQUIRED
+            </div>
+          </div>
         </div>
         <div class="labelrow mr-0 mt-3">
           <label for="imageupload" class="mr-0">Image</label>
-          <input
-            type="text"
-            #fImageURL="ngModel"
-            id="imageurl"
-            class="newCase"
-            name="imageurl"
-            placeholder="Image URL..."
-            [(ngModel)]="imageurl"
-            [ngClass]="{
-              'is-invalid': fImageURL.errors && fImageURL.touched
-            }"
-          />
+          <div class="error" [hidden]="!imageUploadError">
+            {{ imageUploadError }}
+          </div>
+          <ngx-dropzone
+            (change)="onSelect($event)"
+            [accept]="'image/png, image/jpeg, image/jpg'"
+            style="
+              width: 100%;
+              background-color: var(--bg-dark);
+              border: 0;
+              height: auto;
+              padding: 10px;
+            "
+          >
+            <ngx-dropzone-label>Drop image or paste URL…</ngx-dropzone-label>
+          </ngx-dropzone>
+        </div>
+
+        <div class="attachedImages" [hidden]="files.length == 0">
+          <div class="attachedImage" *ngFor="let f of files">
+            <ngx-dropzone-label
+              ><i
+                class="far fa-times-circle removeImage"
+                (click)="onRemove(f)"
+              ></i>
+              {{ f.name }}</ngx-dropzone-label
+            >
+            <ngx-dropzone-image-preview
+              ngProjectAs="ngx-dropzone-preview"
+              [file]="f"
+            >
+            </ngx-dropzone-image-preview>
+          </div>
         </div>
         <div class="mr-0 mt-4 btns">
-          <input type="button" id="imagepicker" value="Add image" />
-          <input type="submit" id="save" value="Save" />
+          <input
+            type="submit"
+            id="save"
+            value="Save"
+            [disabled]="!caseForm.form.valid"
+          />
           <input type="button" id="reset" value="Reset" />
         </div>
       </form>
-      <div class="image-box">
-        <h3>ATTACHED IMAGES</h3>
-        <div class="files">There are no images currently attached...</div>
+      <div class="infoBox">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia
+        quibusdam sunt excepturi eius voluptas pariatur quo fugiat! Eius,
+        eligendi assumenda.
       </div>
     </div>
   </div>
