@@ -6,7 +6,6 @@ import { TicketsComponent } from "./admin-panel/tickets/tickets.component";
 import { IndexComponent } from "./admin-panel/index.component";
 import { BansComponent } from "./admin-panel/bans/bans.component";
 import { CasesComponent } from "./admin-panel/cases/cases.component";
-import { ArchiveComponent } from "./admin-panel/archive/archive.component";
 import { LoginComponent } from "./admin-panel/login/login.component";
 import { NewCaseComponent } from "./admin-panel/cases/new-case/new-case.component";
 import { CaseComponent } from "./admin-panel/case/case.component";
@@ -24,36 +23,35 @@ const routes: Routes = [
     children: [
       {
         path: "",
-        component: DashboardComponent
+        component: DashboardComponent,
       },
       {
         path: "tickets",
-        component: TicketsComponent
+        component: TicketsComponent,
       },
       {
         path: "bans",
-        component: BansComponent
+        component: BansComponent,
       },
       {
         path: "cases",
-        component: CasesComponent
+        component: CasesComponent,
       },
       { path: "cases/:id", component: CaseComponent },
       {
         path: "new-case",
-        component: NewCaseComponent
+        component: NewCaseComponent,
       },
-      { path: "archive", component: ArchiveComponent },
       { path: "**", component: DashboardComponent }, // Error 404 on Admin
-      { path: "**", redirectTo: "admin" }
-    ]
+      { path: "**", redirectTo: "admin" },
+    ],
   },
   { path: "**", component: LandingComponent }, // Error 404
-  { path: "**", redirectTo: "", pathMatch: "full" }
+  { path: "**", redirectTo: "", pathMatch: "full" },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

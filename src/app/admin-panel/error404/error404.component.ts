@@ -3,8 +3,13 @@ import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-error404",
-  templateUrl: "./error404.component.html",
-  styleUrls: ["./error404.component.scss"]
+  template: `<div class="page-container">
+    <div class="center-page">
+      <h1>{{ errorNumber }}</h1>
+      {{ errorMessage }}
+    </div>
+  </div>`,
+  styleUrls: ["./error404.component.scss"],
 })
 export class Error404Component implements OnInit {
   @Input() message: string;
@@ -17,18 +22,18 @@ export class Error404Component implements OnInit {
       "Missing login session cookie",
       "Unable to authorize Discord account",
       "Invalid login URL",
-      "Invalid domain"
+      "Invalid domain",
     ],
     403: [
       "You are missing required permission to view this page",
-      "You must be in the guild to view dashboard"
+      "You must be in the guild to view dashboard",
     ],
     408: ["Took too long to login"],
     500: [
       "Unknown internal server error",
       "Unable to retrieve user data",
-      "Unable to talk to the database"
-    ]
+      "Unable to talk to the database",
+    ],
   };
   constructor(private activatedRoute: ActivatedRoute) {
     setTimeout(() => {

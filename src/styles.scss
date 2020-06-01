@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  outline: none;
 }
 
 a:-webkit-any-link {
@@ -190,11 +191,21 @@ span.burger {
   border-bottom: 1px solid #1a1a21;
 }
 
+.successBox {
+  margin-top: 20px;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  background-color: #105020;
+  border-color: #156b2b;
+}
+
 @media only screen and (max-width: 520px) {
   .sidebar {
     position: fixed;
     width: 100%;
-    z-index: 10;
+    z-index: 999;
     right: 100vw;
   }
 

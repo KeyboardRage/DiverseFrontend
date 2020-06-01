@@ -22,7 +22,10 @@ export class FilterPipe implements PipeTransform {
         const creatornameFound = item.creator_tag
           .toLowerCase()
           .includes(searchTerm);
-        const message = item.data[0].text.includes(searchTerm);
+        let message;
+        if (item.data[0].text) {
+          message = item.data[0].text.includes(searchTerm);
+        }
         return (
           usernameFound ||
           creatorFound ||
@@ -33,9 +36,9 @@ export class FilterPipe implements PipeTransform {
       });
       if (result.length === 0) {
         const result = items.filter((item) => {
-          console.log("here");
-
-          return item.data[0].text.includes(searchTerm);
+          if (item.data[0].text) {
+            return item.data[0].text.includes(searchTerm);
+          }
         });
         return result;
       }

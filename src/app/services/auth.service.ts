@@ -3,7 +3,7 @@ import * as JWT from "jwt-decode";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class AuthService {
   constructor(private http: HttpClient) {}
@@ -17,7 +17,8 @@ export class AuthService {
     "82766826148204544",
     "191742594584150016",
     "628703380851916827",
-    "155819112319156224"
+    "155819112319156224",
+    "666188384074465282",
   ];
 
   // tokenVerify(token) {
@@ -39,7 +40,7 @@ export class AuthService {
   // }
   userCheck(jwt) {
     let decoded: any = JWT(jwt);
-    let user = this.allowedUsers.filter(item => {
+    let user = this.allowedUsers.filter((item) => {
       return decoded.id === item;
     });
 

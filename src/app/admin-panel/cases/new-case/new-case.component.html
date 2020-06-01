@@ -25,17 +25,23 @@
               name="userID"
               placeholder="123456678847"
               required
+              [disabled]="caseID != ''"
+              (input)="submitError = ''"
               [(ngModel)]="userID"
               [ngClass]="{ 'is-invalid': fUserID.errors }"
               pattern="^[0-9]{11,23}$"
             />
+
             <div *ngIf="fUserID.errors">
               <div class="error" *ngIf="fUserID.errors.pattern">
                 INVALID SNOWFLAKE
               </div>
-              <div class="error" *ngIf="fUserID.errors.required">
+              <div class="error" *ngIf="fUserID.errors.required && submitted">
                 REQUIRED
               </div>
+            </div>
+            <div class="error" [hidden]="!submitError">
+              {{ submitError }}
             </div>
           </div>
 
@@ -45,6 +51,7 @@
             <select
               name="caseType"
               class="newCase select"
+              [disabled]="caseID != ''"
               [(ngModel)]="caseType"
               #fCaseType="ngModel"
               (change)="highlightType($event)"
@@ -55,17 +62,45 @@
               >
               <option value="Note">Note</option>
               <option value="DWC">DWC</option>
+              <option value="Warn">Warning</option>
+              <option value="Mute">Mute</option>
               <option value="Kick">Kick</option>
               <option value="Ban">Ban</option>
-              <option value="Warn">Warn</option>
-              <option value="Mute">Mute</option>
             </select>
-            <div class="error" *ngIf="fCaseType.value == ''">
+            <div class="error" *ngIf="fCaseType.value == '' && submitted">
               REQUIRED
             </div>
           </div>
         </div>
 
+        <div class="labelrow mt-3" *ngIf="fCaseType.value == 'Mute'">
+          <label for="userID">Duration</label>
+
+          <input
+            #fDuration="ngModel"
+            type="text"
+            class="newCase"
+            name="duration"
+            placeholder="Time in minutes"
+            (input)="submitError = ''"
+            [(ngModel)]="duration"
+            (input)="submitted = false"
+            pattern="^([0-9]+[h|d|s|m])+$"
+          />
+          <div *ngIf="fDuration.errors">
+            <div class="error" *ngIf="fDuration.errors.pattern">
+              INVALID TIME FORMAT (1d3h6m)
+            </div>
+          </div>
+          <div
+            class="error"
+            *ngIf="
+              fCaseType.value == 'Mute' && submitted && fDuration.value == ''
+            "
+          >
+            REQUIRED
+          </div>
+        </div>
         <div class="labelrow mr-0 mt-3">
           <label for="description" class="mr-0">Description</label>
 
@@ -87,7 +122,10 @@
             MESSAGE TOO LONG (1024 chars)
           </div>
           <div *ngIf="fDescription.errors">
-            <div class="error" *ngIf="fDescription.errors.required">
+            <div
+              class="error"
+              *ngIf="fDescription.errors.required && submitted"
+            >
               REQUIRED
             </div>
           </div>
@@ -108,7 +146,9 @@
               padding: 10px;
             "
           >
-            <ngx-dropzone-label>Drop image or paste URL…</ngx-dropzone-label>
+            <ngx-dropzone-label
+              >Drop, paste or click to attach image…</ngx-dropzone-label
+            >
           </ngx-dropzone>
         </div>
 
@@ -129,19 +169,96 @@
           </div>
         </div>
         <div class="mr-0 mt-4 btns">
-          <input
-            type="submit"
-            id="save"
-            value="Save"
-            [disabled]="!caseForm.form.valid"
-          />
-          <input type="button" id="reset" value="Reset" />
+          <input type="submit" id="save" value="Save" />
+          <input type="button" id="reset" value="Reset" (click)="resetForm()" />
+        </div>
+        <div class="mt-2" *ngIf="submitMessage">
+          {{ submitMessage }}
         </div>
       </form>
       <div class="infoBox">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia
-        quibusdam sunt excepturi eius voluptas pariatur quo fugiat! Eius,
-        eligendi assumenda.
+        <h2>Help Document</h2>
+        <div class="topSection">
+          Although we track who did what, none of these actions tells user which
+          staff issued this case. It is irrelevant to them and protects the
+          staff team from potential personal vendettas.
+          <p></p>
+          <i
+            class="fas fa-exclamation-triangle"
+            style="color: var(--gold);"
+          ></i>
+          It is recommended to always attach images such as proof, reference,
+          screenshots, DM’s, etc. along with the cases. All images are stored on
+          our end. This is very valuable information. This can also be added
+          later, after the case is created—also by other staff members.
+          <p></p>
+          When a case is created here, the action is automatically carried out
+          in the guild, and an event is posted in moderation logs.
+        </div>
+        <div class="gridCase">
+          <h3>Case Types:</h3>
+          <div></div>
+          <div>
+            <i class="fas fa-circle" style="color: var(--Note);"></i>
+            <span class="caseType"> NOTE</span>
+            <p></p>
+            An internal note that only staff can see, meant to keep track of
+            notes on this user.
+            <p></p>
+            Sort of like shared notes we have on users, like “Never accept
+            applications from this user” or “Has an alt account with UID XXX”.
+            <p></p>
+            Does <strong>not</strong> notify user in any way.
+          </div>
+          <div>
+            <i class="fas fa-circle" style="color: var(--DWC);"></i>
+            <span class="caseType"> DWC</span>
+            <p></p>
+            Added to users that are fishy or have accusations against them. A
+            temporary role for those we cannot yet ban for various reasons.
+            Blocks user from using marketplace section.
+
+            <p></p>
+            Notifies user with reason, and tell them to take initiative to get
+            this role removed.
+          </div>
+
+          <div>
+            <i class="fas fa-circle" style="color: var(--Warn);"></i>
+            <span class="caseType"> Warn</span>
+            <p></p>
+            An official warning to the user for a rule violation. No amounts of
+            warnings result in automatic action taken against them.
+            <p></p>
+            Notifies user with reason for the warning.
+          </div>
+          <div>
+            <i class="fas fa-circle" style="color: var(--Mute);"></i>
+            <span class="caseType"> Mute</span>
+            <p></p>
+            Mutes a user by giving them the “Isolated” role. Blocks viewing all
+            channels except ones in Important section. Opens up for conversation
+            in the “Kidszone” channel.
+            <p></p>
+            Notifies user with the reason for mute.
+          </div>
+          <div>
+            <i class="fas fa-circle" style="color: var(--Kick);"></i>
+            <span class="caseType"> Kick</span>
+            <p></p>
+            Kick user from the guild. Nothing special.
+            <p></p>
+            Notifies the user with reason right before kicking.
+          </div>
+          <div>
+            <i class="fas fa-circle" style="color: var(--Ban);"></i>
+            <span class="caseType"> Ban</span>
+            <p></p>
+            Permanently ban a user from the guild. Also nothing special here.
+            <p></p>
+            Notifies user with the reason right before ban.
+          </div>
+        </div>
       </div>
     </div>
   </div>

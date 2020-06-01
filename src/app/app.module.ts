@@ -12,7 +12,6 @@ import { TicketsComponent } from "./admin-panel/tickets/tickets.component";
 import { LoginComponent } from "./admin-panel/login/login.component";
 import { BansComponent } from "./admin-panel/bans/bans.component";
 import { CasesComponent } from "./admin-panel/cases/cases.component";
-import { ArchiveComponent } from "./admin-panel/archive/archive.component";
 import { IndexComponent } from "./admin-panel/index.component";
 import { NewCaseComponent } from "./admin-panel/cases/new-case/new-case.component";
 import { FormsModule } from "@angular/forms";
@@ -23,6 +22,7 @@ import { CookieService } from "ngx-cookie-service";
 import { TableComponent } from "./admin-panel/components/table/table.component";
 import { Error404Component } from "./admin-panel/error404/error404.component";
 import { NgxDropzoneModule } from "ngx-dropzone";
+import { FilterImagesPipe } from "./pipes/filter-images.pipe";
 
 @NgModule({
   declarations: [
@@ -36,7 +36,6 @@ import { NgxDropzoneModule } from "ngx-dropzone";
     LoginComponent,
     BansComponent,
     CasesComponent,
-    ArchiveComponent,
     IndexComponent,
     NewCaseComponent,
     CaseComponent,
@@ -44,6 +43,7 @@ import { NgxDropzoneModule } from "ngx-dropzone";
     FilterPipe,
     TableComponent,
     Error404Component,
+    FilterImagesPipe,
   ],
   imports: [
     BrowserModule,
