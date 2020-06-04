@@ -1,0 +1,166 @@
+<form
+  autocomplete="off"
+  #caseForm="ngForm"
+  (ngSubmit)="onSubmit(caseForm)"
+  novalidate
+>
+  <ng-container *ngIf="formType == 'newCase'">
+    <div class="split-row">
+      <div class="labelrow">
+        <label for="userID">User Snowflake</label>
+
+        <input
+          #fUserID="ngModel"
+          type="text"
+          id="userID"
+          class="newCase"
+          name="userID"
+          placeholder="123456678847"
+          required
+          [disabled]="caseID != ''"
+          (input)="submitError = ''"
+          [(ngModel)]="userID"
+          [ngClass]="{ 'is-invalid': fUserID.errors }"
+          pattern="^[0-9]{11,23}$"
+        />
+
+        <div *ngIf="fUserID.errors">
+          <div class="error" *ngIf="fUserID.errors.pattern">
+            INVALID SNOWFLAKE
+          </div>
+          <div class="error" *ngIf="fUserID.errors.required && submitted">
+            REQUIRED
+          </div>
+        </div>
+        <div class="error" [hidden]="!submitError">
+          {{ submitError }}
+        </div>
+      </div>
+
+      <div class="labelrow">
+        <label for="userID">Case Type:</label>
+
+        <select
+          name="caseType"
+          class="newCase select"
+          [disabled]="caseID != ''"
+          [(ngModel)]="caseType"
+          #fCaseType="ngModel"
+          (change)="highlightType($event)"
+          required
+        >
+          <option selected="selected" disabled value=""
+            >Choose a type...</option
+          >
+          <option value="Note">Note</option>
+          <option value="DWC">DWC</option>
+          <option value="Warn">Warning</option>
+          <option value="Mute">Mute</option>
+          <option value="Kick">Kick</option>
+          <option value="Ban">Ban</option>
+        </select>
+        <div class="error" *ngIf="fCaseType.value == '' && submitted">
+          REQUIRED
+        </div>
+      </div>
+    </div>
+
+    <div class="labelrow mt-3" *ngIf="fCaseType.value == 'Mute'">
+      <label for="userID">Duration</label>
+
+      <input
+        #fDuration="ngModel"
+        type="text"
+        class="newCase"
+        name="duration"
+        placeholder="Time in minutes"
+        (input)="submitError = ''"
+        [(ngModel)]="duration"
+        (input)="submitted = false"
+        pattern="^([0-9]+[h|d|s|m])+$"
+      />
+      <div *ngIf="fDuration.errors">
+        <div class="error" *ngIf="fDuration.errors.pattern">
+          INVALID TIME FORMAT (1d3h6m)
+        </div>
+      </div>
+      <div
+        class="error"
+        *ngIf="fCaseType.value == 'Mute' && submitted && fDuration.value == ''"
+      >
+        REQUIRED
+      </div>
+    </div>
+  </ng-container>
+  <div class="labelrow mr-0 mt-3">
+    <label for="description" class="mr-0">Description</label>
+
+    <textarea
+      #fDescription="ngModel"
+      id="description"
+      class="newCase"
+      name="description"
+      rows="10"
+      style="resize: none;"
+      placeholder="Some text here explaining reason for this new case…"
+      [(ngModel)]="description"
+      [ngClass]="{
+        'is-invalid': fDescription.errors && fDescription.touched
+      }"
+    ></textarea>
+    <div class="error" *ngIf="description?.length > 1024">
+      MESSAGE TOO LONG (1024 chars)
+    </div>
+
+    <div
+      class="error"
+      *ngIf="description == '' && this.files.length == 0 && submitted"
+    >
+      REQUIRED
+    </div>
+  </div>
+  <div class="labelrow mr-0 mt-3">
+    <label for="imageupload" class="mr-0">Image</label>
+    <div class="error" [hidden]="!imageUploadError">
+      {{ imageUploadError }}
+    </div>
+    <ngx-dropzone
+      (change)="onSelect($event)"
+      [accept]="'image/png, image/jpeg, image/jpg'"
+      style="
+        width: 100%;
+        background-color: var(--bg-dark);
+        border: 0;
+        height: auto;
+        padding: 10px;
+      "
+    >
+      <ngx-dropzone-label
+        >Drop, paste or click to attach image…</ngx-dropzone-label
+      >
+    </ngx-dropzone>
+  </div>
+
+  <div class="attachedImages" [hidden]="files.length == 0">
+    <div class="attachedImage" *ngFor="let f of files">
+      <div class="imageLabel">
+        <ngx-dropzone-label
+          ><i class="far fa-times-circle removeImage" (click)="onRemove(f)"></i>
+          {{ f.name }}</ngx-dropzone-label
+        >
+      </div>
+      <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" [file]="f">
+      </ngx-dropzone-image-preview>
+    </div>
+  </div>
+  <div class="mr-0 mt-4 btns">
+    <input type="submit" id="save" value="Save" />
+    <input type="button" id="reset" value="Reset" (click)="resetForm()" />
+  </div>
+  <div class="formLog formError" [hidden]="!submitError">
+    {{ submitError }}
+  </div>
+  <div class="formLog formSuccess" [hidden]="!submitMessage">
+    {{ submitMessage }}
+  </div>
+</form>

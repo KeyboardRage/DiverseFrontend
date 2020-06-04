@@ -23,6 +23,7 @@ import { TableComponent } from "./admin-panel/components/table/table.component";
 import { Error404Component } from "./admin-panel/error404/error404.component";
 import { NgxDropzoneModule } from "ngx-dropzone";
 import { FilterImagesPipe } from "./pipes/filter-images.pipe";
+import { FormComponent } from "./admin-panel/components/form/form.component";
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { FilterImagesPipe } from "./pipes/filter-images.pipe";
     TableComponent,
     Error404Component,
     FilterImagesPipe,
+    FormComponent,
   ],
   imports: [
     BrowserModule,

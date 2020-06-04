@@ -49,6 +49,7 @@ a:any-link {
   --Note: #8f8f8f;
   --InProgress: #27ae60;
 }
+
 ngx-dropzone-image-preview img {
   margin-top: 5px;
   padding: 20px;
@@ -56,8 +57,11 @@ ngx-dropzone-image-preview img {
   object-fit: contain;
   border-radius: var(--border);
   background-color: var(--bg-light);
-  height: 250px !important;
+  height: inherit !important;
+  width: inherit !important;
+  object-fit: contain !important;
   opacity: 1 !important;
+  max-height: inherit !important;
 }
 ngx-dropzone-image-preview img:hover {
   opacity: 1 !important;
@@ -189,16 +193,6 @@ span.burger {
   background: var(--bg);
   padding: 30px 40px;
   border-bottom: 1px solid #1a1a21;
-}
-
-.successBox {
-  margin-top: 20px;
-  padding: 0.75rem 1.25rem;
-  margin-bottom: 1rem;
-  border: 1px solid transparent;
-  border-radius: 0.25rem;
-  background-color: #105020;
-  border-color: #156b2b;
 }
 
 @media only screen and (max-width: 520px) {

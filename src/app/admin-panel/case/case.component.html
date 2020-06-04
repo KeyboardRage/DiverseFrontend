@@ -10,87 +10,11 @@
     <div class="caseGrid">
       <div id="form">
         <h2>Add Data</h2>
-        <form
-          autocomplete="off"
-          #caseForm="ngForm"
-          (ngSubmit)="onSubmit(caseForm)"
-          novalidate
-        >
-          <div class="labelrow mr-0 mt-3">
-            <label for="description" class="mr-0">Description</label>
-
-            <textarea
-              #fDescription="ngModel"
-              id="description"
-              class="newCase"
-              name="description"
-              rows="10"
-              style="resize: none;"
-              placeholder="Some text here to add to this case…"
-              [(ngModel)]="description"
-              [ngClass]="{
-                'is-invalid': fDescription.errors && fDescription.touched
-              }"
-            ></textarea>
-            <div class="error" *ngIf="description?.length > 1024">
-              MESSAGE TOO LONG (1024 chars)
-            </div>
-          </div>
-          <div class="labelrow mr-0 mt-3">
-            <label for="imageupload" class="mr-0">Image</label>
-            <div class="error" [hidden]="!imageUploadError">
-              {{ imageUploadError }}
-            </div>
-            <ngx-dropzone
-              (change)="onSelect($event)"
-              [accept]="'image/png, image/jpeg, image/jpg'"
-              style="
-                width: 100%;
-                background-color: var(--bg-dark);
-                border: 0;
-                height: auto;
-                padding: 10px;
-              "
-            >
-              <ngx-dropzone-label
-                >Drop, paste or click to attach image…</ngx-dropzone-label
-              >
-            </ngx-dropzone>
-          </div>
-
-          <div class="attachedImages" [hidden]="files.length == 0">
-            <div class="attachedImage" *ngFor="let f of files">
-              <ngx-dropzone-label
-                ><i
-                  class="far fa-times-circle removeImage"
-                  (click)="onRemove(f)"
-                ></i>
-                {{ f.name }}</ngx-dropzone-label
-              >
-              <ngx-dropzone-image-preview
-                ngProjectAs="ngx-dropzone-preview"
-                [file]="f"
-              >
-              </ngx-dropzone-image-preview>
-            </div>
-          </div>
-          <div class="mr-0 mt-4 btns">
-            <input type="submit" id="save" value="Save" />
-            <input
-              type="button"
-              id="reset"
-              value="Reset"
-              (click)="resetForm()"
-            />
-          </div>
-          <div class="error" [hidden]="!submitError">
-            {{ submitError }}
-          </div>
-          <div class="successBox">
-            Sending form....
-            {{ submitMessage }}
-          </div>
-        </form>
+        <app-form
+          formType="appendData"
+          caseID="{{ caseID }}"
+          (updateData)="getData()"
+        ></app-form>
       </div>
       <div id="case">
         <div class="casetop mb-3">
@@ -124,43 +48,30 @@
             class="archive-entry"
             *ngFor="let case of caseData | filterImages; index as i"
           >
-            <ng-container
-              *ngIf="
-                (case.text &&
-                  case.text.indexOf(
-                    'https://cdn.discordapp.com/attachments/'
-                  ) != -1) ||
-                  case.image;
-                else displayText
-              "
-            >
-            </ng-container>
-            <ng-template #displayText>
-              <h4>
-                By
-                <span
-                  *ngIf="case.creator_tag === 'Unknown#0000'; else elseBlock"
-                  >{{ case.creator }}</span
-                >
-                <ng-template #elseBlock>{{ case.creator_tag }}</ng-template>
-              </h4>
-
-              <span style="color: var(--light-text);">{{ case.text }}</span>
-              <p></p>
+            <h4>
+              By
               <span
-                ><span class="code">{{ i + 1 }}</span> &mdash;
-                {{ case.created | date: "dd LLLL yyyy" }}</span
+                *ngIf="case.creator_tag === 'Unknown#0000'; else elseBlock"
+                >{{ case.creator }}</span
               >
-              <span *ngIf="case.image">
-                -
-                <a
-                  href="https://f.diverse.graphics/case/{{ this.caseID }}/{{
-                    case.image
-                  }}"
-                  target="_blank"
-                  >Attachment</a
-                ></span
-              ></ng-template
+              <ng-template #elseBlock>{{ case.creator_tag }}</ng-template>
+            </h4>
+
+            <span style="color: var(--light-text);">{{ case.text }}</span>
+            <p></p>
+            <span
+              ><span class="code">{{ i + 1 }}</span> &mdash;
+              {{ case.created | date: "dd LLLL yyyy" }}</span
+            >
+            <span *ngIf="case.image">
+              -
+              <a
+                href="https://f.diverse.graphics/case/{{ this.caseID }}/{{
+                  case.image
+                }}"
+                target="_blank"
+                >Attachment</a
+              ></span
             >
           </div>
           <div *ngIf="images.length != 0">

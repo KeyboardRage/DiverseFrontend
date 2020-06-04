@@ -6,8 +6,16 @@ import { Pipe, PipeTransform } from "@angular/core";
 export class FilterImagesPipe implements PipeTransform {
   transform(items) {
     let res = items.filter((item) => {
-      return !item.image;
+      const imageAttach = item.text && !item.image;
+
+      const textAttach =
+        item.text &&
+        item.text.indexOf("https://cdn.discordapp.com/attachments/") === -1 &&
+        item.text.indexOf("https://i.diverse.graphics") === -1;
+
+      return imageAttach || textAttach;
     });
+    console.log(res);
 
     return res;
   }
