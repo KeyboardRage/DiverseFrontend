@@ -134,12 +134,27 @@ h2 {
   overflow-x: auto;
   flex-wrap: nowrap;
 }
-.attachedImage img {
-  max-width: 400px;
+.attachedImage img,
+.attachedImage a {
+  width: inherit;
+  height: inherit;
   object-fit: contain;
+  max-height: inherit;
+  max-width: inherit;
+  min-height: 150px;
+}
+
+.attachedImage img {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: var(--bg-light);
 }
 .attachedImage {
+  min-width: 250px;
   position: relative;
+  max-width: 400px;
+  max-height: 160px;
+  width: 100%;
   height: 100%;
   margin-left: 10px;
 }

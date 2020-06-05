@@ -34,7 +34,7 @@ export class CaseComponent implements OnInit {
       this.caseData = res.data;
       this.images = [];
       res.data.forEach((elem) => {
-        if (elem.image) {
+        if (elem.image) { 
           this.images.push(elem.image);
         }
       });

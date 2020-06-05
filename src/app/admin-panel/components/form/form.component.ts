@@ -25,6 +25,7 @@ export class FormComponent implements OnInit {
   imageUploadError = "";
   submitError = "";
   files: File[] = [];
+  disableButtons = false;
   submitMessage = "";
 
   constructor(
@@ -35,6 +36,7 @@ export class FormComponent implements OnInit {
     public forms: FormCheckService
   ) {
     this.eventManager.addEventListener(document.body, "paste", (event) => {
+      if (this.disableButtons) return;
       let items = event.clipboardData.items;
       for (var i = 0; i < items.length; i++) {
         // Skip content if not image
@@ -85,6 +87,7 @@ export class FormComponent implements OnInit {
   }
 
   onRemove(event) {
+    if (this.disableButtons) return;
     this.files.splice(this.files.indexOf(event), 1);
   }
 
@@ -102,6 +105,9 @@ export class FormComponent implements OnInit {
 
     // Loading message for the user
     this.submitMessage = "Sending form...";
+
+    // Disable the buttons
+    this.disableButtons = true;
 
     // Get the JWT token to send with the POST request
     let decodedJWT: any = JWT(this.cookieService.get("session"));
@@ -155,14 +161,16 @@ export class FormComponent implements OnInit {
           (data) => {
             this.submitMessage = "Form successfully submitted";
             this.resetForm();
+            this.disableButtons = false;
             setTimeout(() => {
               this.submitMessage = "";
             }, 5000);
           },
           (err) => {
             this.submitMessage = "";
+            this.disableButtons = false;
             return (this.submitError =
-              "An error occured while submitting the form. Please contact Virtus or Freud");
+              "An error occured while submitting the form. Please contact VirtusGraphics#0001 or Freud#8947");
           }
         );
     } else {
@@ -173,14 +181,17 @@ export class FormComponent implements OnInit {
             this.submitMessage = "Form successfully submitted";
             this.resetForm();
             this.updateData.emit();
+            this.disableButtons = false;
             setTimeout(() => {
               this.submitMessage = "";
             }, 5000);
           },
           (err) => {
             this.submitMessage = "";
+            this.disableButtons = false;
+
             return (this.submitError =
-              "An error occured while submitting the form. Please contact Virtus or Freud");
+              "An error occured while submitting the form. Please contact VirtusGraphics#0001 or Freud#8947");
           }
         );
     }
